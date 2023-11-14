@@ -8,11 +8,11 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="1af22310-c9d1-4b41-b587-3a7c6d388a93"
+    Name="0188e090-9e1c-46b0-b952-ccfea90c1285"
     Publisher="CN=2272411"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="1af22310-c9d1-4b41-b587-3a7c6d388a93" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="0188e090-9e1c-46b0-b952-ccfea90c1285" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>TravailDeSessionProg-BD</DisplayName>
