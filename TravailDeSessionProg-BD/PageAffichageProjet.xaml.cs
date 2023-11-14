@@ -18,12 +18,13 @@ using Windows.Foundation.Collections;
 
 namespace TravailDeSessionProg_BD
 {
-    public sealed partial class MainWindow : Window
+    public sealed partial class PageAffichageProjet : Page
     {
-        public MainWindow()
+        public PageAffichageProjet()
         {
             this.InitializeComponent();
-            mainFrame.Navigate(typeof(PageAffichageProjet));
+            gvListe.Items.Clear();
+            gvListe.ItemsSource = SingletonProjet.getInstance().GetListeProjet();
         }
     }
 }

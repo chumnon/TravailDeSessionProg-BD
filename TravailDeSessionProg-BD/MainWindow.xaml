@@ -8,7 +8,16 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:Name="myButton" Click="myButton_Click">Click Me</Button>
-    </StackPanel>
+    <Grid x:Name="GridMaitre">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <CommandBar Background="LightGray" IsOpen="False" DefaultLabelPosition="Right">
+        </CommandBar>
+
+        <TextBlock x:Name="test" Grid.Row="1"></TextBlock>
+        <Frame x:Name="mainFrame" Grid.Row="1" Background="Gray"/>
+    </Grid>
 </Window>
