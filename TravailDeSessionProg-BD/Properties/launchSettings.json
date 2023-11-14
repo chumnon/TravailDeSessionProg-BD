@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "TravailDeSessionProg-BD (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "TravailDeSessionProg-BD (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
