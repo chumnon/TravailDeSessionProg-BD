@@ -8,26 +8,27 @@ using System.Threading.Tasks;
 
 namespace TravailDeSessionProg_BD
 {
-    internal class SingletonProjet
+    internal class SingletonTache
     {
-        ObservableCollection<Projet> liste;
-        static SingletonProjet instance = null;
+        ObservableCollection<Tache> liste;
+        static SingletonTache instance = null;
 
         MySqlConnection con = new MySqlConnection("Server=cours.cegep3r.info;Database=2272411-arthur-lamothe;Uid=2272411;Pwd=2272411;");
 
-        public SingletonProjet()
+        public SingletonTache()
         {
-            liste = new ObservableCollection<Projet>();
+            liste = new ObservableCollection<Tache>();
         }
 
-        public static SingletonProjet getInstance()
+        public static SingletonTache getInstance()
         {
             if (instance == null)
-                instance = new SingletonProjet();
+                instance = new SingletonTache();
 
             return instance;
         }
 
+        /*
         public ObservableCollection<Projet> GetListeProjet()
         {
             liste.Clear();
@@ -111,7 +112,7 @@ namespace TravailDeSessionProg_BD
             return liste[position];
         }
 
-        /*public void ajouterProjet(Projet unProjet)
+        public void ajouterProjet(Projet unProjet)
         {
             Boolean err;
             try

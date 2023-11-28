@@ -15,6 +15,13 @@
         </Grid.RowDefinitions>
 
         <CommandBar Background="LightGray" IsOpen="False" DefaultLabelPosition="Right">
+            <AppBarButton Label="Enregistrer les projets" x:Name="abButtonSaveProjet" Click="abButtonSaveProjet_Click"/>
+            <AppBarButton Label="Liste des projets" x:Name="abButtonListeProjet" Click="abButtonListeProjet_Click"/>
+            <AppBarButton Label="Ajouter un projet" x:Name="abButtonAjoutProjet" Click="abButtonAjoutProjet_Click"/>
+            <AppBarButton Label="Liste des clients" x:Name="abButtonListeClient" Click="abButtonListeClient_Click"/>
+            <AppBarButton Label="Ajouter un client" x:Name="abButtonAjoutClient" Click="abButtonAjoutClient_Click"/>
+            <AppBarButton Label="Liste des employés" x:Name="abButtonListeEmploye" Click="abButtonListeEmploye_Click"/>
+            <AppBarButton Label="Ajouter un employé" x:Name="abButtonAjoutEmploye" Click="abButtonAjoutEmploye_Click"/>
         </CommandBar>
 
         <TextBlock x:Name="test" Grid.Row="1"></TextBlock>

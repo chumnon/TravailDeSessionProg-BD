@@ -15,8 +15,8 @@ namespace TravailDeSessionProg_BD
         public string Email { get; set; }
         public string Adresse { get; set; }
         public string DateEmbauche { get; set; }
-        public string TauxHoraire { get; set; }
-        public string PhotoId { get; set; }
+        public double TauxHoraire { get; set; }
+        public string Photo { get; set; }
         public string Statut { get; set; }
     }
 }

@@ -9,12 +9,18 @@ namespace TravailDeSessionProg_BD
     internal class Projet
     {
         public string Numero { get; set; }
-        public string Titre { get; set;}
+        public string Titre { get; set; }
         public string DateDebut { get; set; }
         public string Description { get; set; }
         public string Budget { get; set; }
         public int NbrEmploye { get; set; }
-        public int Client {  get; set; }
+        public double SalaireTotal { get; set; }
+        public int SonClient { get; set; }
         public string Statut { get; set; }
+        public string ToStringProjet()
+        {
+            string leString = Numero + ";" + Titre + ";" + DateDebut + ";" + Description + ";" + Budget + ";" + NbrEmploye.ToString() + ";" + SalaireTotal.ToString() + ";" + SonClient.ToString() + ";" + Statut;
+            return leString;
+        }
     }
 }

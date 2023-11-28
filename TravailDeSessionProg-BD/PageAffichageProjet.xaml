@@ -17,7 +17,7 @@
         </Grid.RowDefinitions>
         <TextBlock Text="Liste des projets" Margin="15" FontSize="40" FontFamily="Terminal" Grid.Row="0"/>
 
-        <GridView x:Name="gvListe" Grid.Row="1" Padding="20">
+        <GridView x:Name="gvListeProjet" Grid.Row="1" Padding="20">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="local:projet" >
                     <StackPanel Margin="5" Background="White" Width="200" Height="200">
@@ -32,7 +32,7 @@
 
                             <TextBlock Text="{x:Bind Titre}" Grid.Row="0" FontWeight="Bold" FontSize="20" TextAlignment="Center" Margin="0,10,0,10"/>
                             <TextBlock Text="{x:Bind Numero}" Grid.Row="1" FontSize="20" TextAlignment="Center"/>
-                            <TextBlock Text="{x:Bind Client.Nom}" Grid.Row="2" FontSize="20" TextAlignment="Center"/>
+                            <TextBlock Text="{x:Bind SonClient}" Grid.Row="2" FontSize="20" TextAlignment="Center"/>
                             <TextBlock Text="{x:Bind DateDebut}" Grid.Row="3" FontSize="20" TextAlignment="Center"/>
                             <TextBlock Text="{x:Bind Budget}" Grid.Row="4" FontSize="20" TextAlignment="Center"/>
                         </Grid>
