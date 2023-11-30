@@ -9,7 +9,49 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+	<Grid x:Name="mainGrid">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="auto" />
+		</Grid.RowDefinitions>
+		<TextBlock Text="Liste des clients" Margin="15" FontSize="40" FontFamily="Terminal" Grid.Row="0"/>
 
-    </Grid>
+		<GridView x:Name="gvListeClient" Grid.Row="1" Padding="20">
+			<GridView.ItemTemplate>
+				<DataTemplate x:DataType="local:Client" >
+					<StackPanel Margin="5" Background="White" Width="200" Height="200">
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="2*" />
+								<RowDefinition Height="1*" />
+								<RowDefinition Height="1*" />
+								<RowDefinition Height="1*" />
+								<RowDefinition Height="1*" />
+							</Grid.RowDefinitions>
+
+							<TextBlock Text="{x:Bind Id}" Grid.Row="0" FontWeight="Bold" FontSize="20" TextAlignment="Center" Margin="0,10,0,10"/>
+							<TextBlock Text="{x:Bind Nom}" Grid.Row="1" FontSize="20" TextAlignment="Center"/>
+							<TextBlock Text="{x:Bind Adresse}" Grid.Row="2" FontSize="20" TextAlignment="Center"/>
+							<TextBlock Text="{x:Bind NumTel}" Grid.Row="3" FontSize="20" TextAlignment="Center"/>
+							<TextBlock Text="{x:Bind Email}" Grid.Row="4" FontSize="20" TextAlignment="Center"/>
+						</Grid>
+					</StackPanel>
+				</DataTemplate>
+			</GridView.ItemTemplate>
+		</GridView>
+		<Grid Grid.Row="2" Margin="0,0,0,10">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="1*" />
+				<ColumnDefinition Width="1*" />
+			</Grid.ColumnDefinitions>
+
+			<Button x:Name="btSupprimer" Grid.Column="0" HorizontalAlignment="Center" FontSize="20" Background="LightGray" Click="btSupprimer_Click">
+				<TextBlock>Supprimer le client</TextBlock>
+			</Button>
+			<Button x:Name="btModifier" Grid.Column="1" HorizontalAlignment="Center" FontSize="20" Background="LightGray" Click="btMod_Click">
+				<TextBlock>Modifier le client</TextBlock>
+			</Button>
+		</Grid>
+	</Grid>
 </Page>

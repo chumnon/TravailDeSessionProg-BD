@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="TravailDeSessionProg_BD.PageAjoutAdmin"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TravailDeSessionProg_BD"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <ScrollViewer>
+        <Grid Padding="40" x:Name="mainGrid" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Nouvel administrateur" Margin="15" FontSize="40"
+            Grid.Row="0" FontWeight="Bold" HorizontalAlignment="Center"/>
+
+            <StackPanel Grid.Row="1" Padding="20">
+                <TextBox x:Name="inNom"  Header="Nom" VerticalAlignment="Top"/>
+                <TextBlock x:Name="ErrNom" Foreground="Red" FontSize="15" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Padding="20">
+                <TextBox x:Name="inMdp"  Header="Mots de passe" VerticalAlignment="Top"/>
+                <TextBlock x:Name="ErrMdp" Foreground="Red" FontSize="15" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="3" Grid.Column="1" Padding="20">
+                <TextBox x:Name="inMdpConf" Header="Confirmation"  VerticalAlignment="Top" TextWrapping="Wrap"/>
+                <TextBlock x:Name="ErrMdpConf" Foreground="Red" FontSize="15" />
+            </StackPanel>
+
+            <Button x:Name="btAjouter" Grid.Row="4" HorizontalAlignment="Center" FontSize="20" Background="LightGray" Click="btAjouter_Click">
+                <TextBlock>Ajouter l'admin</TextBlock>
+            </Button>
+        </Grid>
+    </ScrollViewer>
+</Page>

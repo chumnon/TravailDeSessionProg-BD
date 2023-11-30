@@ -26,7 +26,7 @@
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Nouveau matériel" Margin="15" FontSize="40" 
+            <TextBlock Text="Nouveau projet" Margin="15" FontSize="40" 
            Grid.ColumnSpan="4" Grid.Row="0" FontWeight="Bold"
            HorizontalAlignment="Center"/>
 
@@ -43,7 +43,7 @@
             </StackPanel>
 
             <StackPanel Grid.Row="2" Padding="20" Grid.ColumnSpan="2">
-                <DatePicker  Grid.Column="0" Grid.Row="2" x:Name="inDateDebut" Header="Date de début"></DatePicker>
+                <DatePicker x:Name="inDateDebut" Header="Date de début"></DatePicker>
                 <TextBlock x:Name="ErrDateDebut" Foreground="Red" FontSize="15" />
             </StackPanel>
 

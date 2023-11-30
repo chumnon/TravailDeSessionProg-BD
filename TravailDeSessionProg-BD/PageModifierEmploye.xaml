@@ -9,7 +9,68 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <ScrollViewer>
+        <Grid Padding="40" x:Name="mainGrid" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
 
-    </Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Nouvel employé" Margin="15" FontSize="40" 
+       Grid.ColumnSpan="3" Grid.Row="0" FontWeight="Bold"
+       HorizontalAlignment="Center"/>
+
+            <StackPanel Grid.Row="1" Padding="20"  Grid.Column="0">
+                <TextBox x:Name="inPrenom"  Header="Prenom" VerticalAlignment="Top"/>
+                <TextBlock x:Name="ErrPrenom" Foreground="Red" FontSize="15" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.Column="1" Padding="20">
+                <TextBox x:Name="inNom"  Header="Nom" VerticalAlignment="Top"/>
+                <TextBlock x:Name="ErrNom" Foreground="Red" FontSize="15" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Grid.ColumnSpan="3" Padding="20">
+                <TextBox x:Name="inEmail" Header="Email"  VerticalAlignment="Top" TextWrapping="Wrap"/>
+                <TextBlock x:Name="ErrEmail" Foreground="Red" FontSize="15" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="3" Grid.ColumnSpan="3" Padding="20" >
+                <TextBox x:Name="inAdresse" Header="Adresse"  VerticalAlignment="Top" TextWrapping="Wrap"/>
+                <TextBlock x:Name="ErrAdresse" Foreground="Red" FontSize="15" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="4" Grid.Column="0" Padding="20" >
+                <TextBox x:Name="inTauxHoraire" Header="Taux horaire"  VerticalAlignment="Top" TextWrapping="Wrap"/>
+                <TextBlock x:Name="ErrTauxHoraire" Foreground="Red" FontSize="15" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="4" Grid.Column="1" Padding="20" >
+                <ComboBox x:Name="inStatut" Header="Statut"  VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                    <x:String>Journalier</x:String>
+                    <x:String>Permanent</x:String>
+                </ComboBox>
+                <TextBlock x:Name="ErrStatut" Foreground="Red" FontSize="15" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="5" Grid.ColumnSpan="3" Padding="20" >
+                <TextBox x:Name="inPhoto" Header="Photo d'identité"  VerticalAlignment="Top" TextWrapping="Wrap"/>
+                <TextBlock x:Name="ErrPhoto" Foreground="Red" FontSize="15" />
+            </StackPanel>
+
+            <Button x:Name="btAjouter" Grid.Row="5" Grid.ColumnSpan="4" HorizontalAlignment="Center" FontSize="20" Background="LightGray" Click="btAjouter_Click">
+                <TextBlock>Modifier l'employé</TextBlock>
+            </Button>
+        </Grid>
+    </ScrollViewer>
 </Page>

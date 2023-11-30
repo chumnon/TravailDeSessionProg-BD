@@ -13,7 +13,7 @@ namespace TravailDeSessionProg_BD
         ObservableCollection<Projet> liste;
         static SingletonProjet instance = null;
 
-        MySqlConnection con = new MySqlConnection("Server=cours.cegep3r.info;Database=2272411-arthur-lamothe;Uid=2272411;Pwd=2272411;");
+        MySqlConnection con = new MySqlConnection("Server=cours.cegep3r.info;Database=2272411-lamothe-arthur;Uid=2272411;Pwd=2272411;");
 
         public SingletonProjet()
         {

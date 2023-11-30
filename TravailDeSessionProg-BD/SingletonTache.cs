@@ -13,7 +13,7 @@ namespace TravailDeSessionProg_BD
         ObservableCollection<Tache> liste;
         static SingletonTache instance = null;
 
-        MySqlConnection con = new MySqlConnection("Server=cours.cegep3r.info;Database=2272411-arthur-lamothe;Uid=2272411;Pwd=2272411;");
+        MySqlConnection con = new MySqlConnection("Server=cours.cegep3r.info;2272411-lamothe-arthur;Uid=2272411;Pwd=2272411;");
 
         public SingletonTache()
         {
@@ -28,91 +28,7 @@ namespace TravailDeSessionProg_BD
             return instance;
         }
 
-        /*
-        public ObservableCollection<Projet> GetListeProjet()
-        {
-            liste.Clear();
-            try
-            {
-                MySqlCommand commande = new MySqlCommand("get_projet");
-                commande.Connection = con;
-                commande.CommandType = System.Data.CommandType.StoredProcedure;
-                con.Open();
-                MySqlDataReader r = commande.ExecuteReader();
-                while (r.Read())
-                {
-                    Projet unProjet = new Projet
-                    {
-                        Numero = r["numero"].ToString(),
-                        Titre = r["titre"].ToString(),
-                        DateDebut = r["dateDebut"].ToString(),
-                        Description = r["description"].ToString(),
-                        Budget = r["budget"].ToString(),
-                        NbrEmploye = int.Parse(r["nbrEmploye"].ToString()),
-                        SalaireTotal = double.Parse(r["salaireTotal"].ToString()),
-                        SonClient = int.Parse(r["client"].ToString()),
-                        Statut = r["statut"].ToString()
-                    };
-                    liste.Add(unProjet);
-
-                }
-
-                r.Close();
-                con.Close();
-                return liste;
-
-            }
-            catch (MySqlException ex)
-            {
-                con.Close();
-                return null;
-            }
-        }
-
-        public List<Projet> GetListeToSave()
-        {
-            List<Projet> uneListe = new List<Projet>();
-            try
-            {
-                MySqlCommand commande = new MySqlCommand("get_projet");
-                commande.Connection = con;
-                commande.CommandType = System.Data.CommandType.StoredProcedure;
-                con.Open();
-                MySqlDataReader r = commande.ExecuteReader();
-                while (r.Read())
-                {
-                    Projet unProjet = new Projet
-                    {
-                        Numero = r["numero"].ToString(),
-                        Titre = r["titre"].ToString(),
-                        DateDebut = r["dateDebut"].ToString(),
-                        Description = r["description"].ToString(),
-                        Budget = r["budget"].ToString(),
-                        NbrEmploye = int.Parse(r["nbrEmploye"].ToString()),
-                        SalaireTotal = double.Parse(r["salaireTotal"].ToString()),
-                        SonClient = int.Parse(r["client"].ToString()),
-                        Statut = r["statut"].ToString()
-                    };
-                    uneListe.Add(unProjet);
-                }
-                r.Close();
-                con.Close();
-                return uneListe;
-
-            }
-            catch (MySqlException ex)
-            {
-                con.Close();
-                return null;
-            }
-        }
-
-        public Projet getProjet(int position)
-        {
-            return liste[position];
-        }
-
-        public void ajouterProjet(Projet unProjet)
+        /*public void ajouterTache(Tache uneTache)
         {
             Boolean err;
             try
@@ -124,11 +40,7 @@ namespace TravailDeSessionProg_BD
             }
         }*/
 
-        /*public void modifierProjet(int position, Projet unProjet)
-        {
-        }*/
-
-        /*public void supprimerProjet(int position)
+        /*public void supprimerTache(int position)
         {
             try
             {

@@ -9,7 +9,39 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+	<Grid x:Name="mainGrid">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<TextBlock Text="Liste des employés" Margin="15" FontSize="40" FontFamily="Terminal" Grid.Row="0"/>
 
-    </Grid>
+		<GridView x:Name="gvListeEmploye" Grid.Row="1" Padding="20">
+			<GridView.ItemTemplate>
+				<DataTemplate x:DataType="local:Employe" >
+					<StackPanel Margin="5" Background="White" Width="200" Height="200">
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="2*" />
+								<RowDefinition Height="1*" />
+								<RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                            </Grid.RowDefinitions>
+                            
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="{x:Bind Prenom}" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="20" TextAlignment="Center" Margin="0,10,0,10"/>
+                            <TextBlock Text="{x:Bind Nom}" Grid.Row="0" Grid.Column="1" FontWeight="Bold" FontSize="20" TextAlignment="Center" Margin="0,10,0,10"/>
+                            <TextBlock Text="{x:Bind Matricule}" Grid.Row="1" Grid.ColumnSpan="2" FontSize="20" TextAlignment="Center"/>
+                            <TextBlock Text="{x:Bind DateDeNaissance}" Grid.Row="2" Grid.ColumnSpan="2" FontSize="20" TextAlignment="Center"/>
+                            <TextBlock Text="{x:Bind Statut}" Grid.Row="3" Grid.ColumnSpan="2" FontSize="20" TextAlignment="Center"/>
+                        </Grid>
+					</StackPanel>
+				</DataTemplate>
+			</GridView.ItemTemplate>
+		</GridView>
+	</Grid>
 </Page>

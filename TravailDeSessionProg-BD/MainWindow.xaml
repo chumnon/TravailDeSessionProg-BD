@@ -15,6 +15,8 @@
         </Grid.RowDefinitions>
 
         <CommandBar Background="LightGray" IsOpen="False" DefaultLabelPosition="Right">
+            <AppBarButton Label="Connexion admin" x:Name="abButtonCon" Click="abButtonCon_Click"/>
+            <AppBarButton Label="Ajouter un compte admin" x:Name="abButtonAjoutAdmin" Click="abButtonAjoutAdmin_Click"/>
             <AppBarButton Label="Enregistrer les projets" x:Name="abButtonSaveProjet" Click="abButtonSaveProjet_Click"/>
             <AppBarButton Label="Liste des projets" x:Name="abButtonListeProjet" Click="abButtonListeProjet_Click"/>
             <AppBarButton Label="Ajouter un projet" x:Name="abButtonAjoutProjet" Click="abButtonAjoutProjet_Click"/>

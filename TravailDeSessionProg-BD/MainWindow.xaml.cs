@@ -26,6 +26,15 @@ namespace TravailDeSessionProg_BD
             mainFrame.Navigate(typeof(PageAffichageProjet));
         }
 
+        private void abButtonCon_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Navigate(typeof(PageConnexion));
+        }
+
+        private void abButtonAjoutAdmin_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Navigate(typeof(PageAjoutAdmin));
+        }
         private void abButtonListeProjet_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.Navigate(typeof(PageAffichageProjet));

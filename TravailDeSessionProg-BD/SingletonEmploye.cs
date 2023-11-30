@@ -13,7 +13,7 @@ namespace TravailDeSessionProg_BD
         ObservableCollection<Employe> liste;
         static SingletonEmploye instance = null;
 
-        MySqlConnection con = new MySqlConnection("Server=cours.cegep3r.info;Database=2272411-arthur-lamothe;Uid=2272411;Pwd=2272411;");
+        MySqlConnection con = new MySqlConnection("Server=cours.cegep3r.info;Database=2272411-lamothe-arthur;Uid=2272411;Pwd=2272411;");
 
         public SingletonEmploye()
         {
@@ -28,9 +28,46 @@ namespace TravailDeSessionProg_BD
             return instance;
         }
 
-        /*public ObservableCollection<Employe> GetListeMateriel()
+        public ObservableCollection<Employe> GetListeEmploye()
         {
-        }*/
+            liste.Clear();
+            try
+            {
+                MySqlCommand commande = new MySqlCommand("get_employe");
+                commande.Connection = con;
+                commande.CommandType = System.Data.CommandType.StoredProcedure;
+                con.Open();
+                MySqlDataReader r = commande.ExecuteReader();
+                while (r.Read())
+                {
+                    Employe unEmploye = new Employe
+                    {
+                        Matricule = r["matricule"].ToString(),
+                        Nom = r["nom"].ToString(),
+                        Prenom = r["prenom"].ToString(),
+                        DateDeNaissance = r["dateDeNaissance"].ToString(),
+                        Email = r["email"].ToString(),
+                        Adresse = r["adresse"].ToString(),
+                        DateEmbauche = r["dateEmbauche"].ToString(),
+                        TauxHoraire = double.Parse(r["tauxHoraire"].ToString()),
+                        Photo = r["photo"].ToString(),
+                        Statut = r["statut"].ToString()
+                    };
+                    liste.Add(unEmploye);
+
+                }
+
+                r.Close();
+                con.Close();
+                return liste;
+
+            }
+            catch (MySqlException ex)
+            {
+                con.Close();
+                return null;
+            }
+        }
 
         public Employe getEmploye(int position)
         {

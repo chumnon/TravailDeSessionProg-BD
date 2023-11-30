@@ -13,7 +13,7 @@ namespace TravailDeSessionProg_BD
         ObservableCollection<Client> liste;
         static SingletonClient instance = null;
 
-        MySqlConnection con = new MySqlConnection("Server=cours.cegep3r.info;Database=2272411-arthur-lamothe;Uid=2272411;Pwd=2272411;");
+        MySqlConnection con = new MySqlConnection("Server=cours.cegep3r.info;Database=2272411-lamothe-arthur;Uid=2272411;Pwd=2272411;");
 
         public SingletonClient()
         {
@@ -28,9 +28,41 @@ namespace TravailDeSessionProg_BD
             return instance;
         }
 
-        /*public ObservableCollection<Employe> GetListeMateriel()
+        public ObservableCollection<Client> GetListeClient()
         {
-        }*/
+            liste.Clear();
+            try
+            {
+                MySqlCommand commande = new MySqlCommand("get_client");
+                commande.Connection = con;
+                commande.CommandType = System.Data.CommandType.StoredProcedure;
+                con.Open();
+                MySqlDataReader r = commande.ExecuteReader();
+                while (r.Read())
+                {
+                    Client unClient = new Client
+                    {
+                        Id = int.Parse(r["id"].ToString()),
+                        Nom = r["nom"].ToString(),
+                        Adresse = r["adresse"].ToString(),
+                        NumTel = r["numTel"].ToString(),
+                        Email = r["email"].ToString()
+                    };
+                    liste.Add(unClient);
+
+                }
+
+                r.Close();
+                con.Close();
+                return liste;
+
+            }
+            catch (MySqlException ex)
+            {
+                con.Close();
+                return null;
+            }
+        }
 
         public Client getClient(int position)
         {

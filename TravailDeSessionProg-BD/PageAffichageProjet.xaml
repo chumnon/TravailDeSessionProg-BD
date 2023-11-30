@@ -13,13 +13,12 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <TextBlock Text="Liste des projets" Margin="15" FontSize="40" FontFamily="Terminal" Grid.Row="0"/>
 
         <GridView x:Name="gvListeProjet" Grid.Row="1" Padding="20">
             <GridView.ItemTemplate>
-                <DataTemplate x:DataType="local:projet" >
+                <DataTemplate x:DataType="local:Projet" >
                     <StackPanel Margin="5" Background="White" Width="200" Height="200">
                         <Grid>
                             <Grid.RowDefinitions>
