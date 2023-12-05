@@ -18,19 +18,14 @@ using Windows.Foundation.Collections;
 
 namespace TravailDeSessionProg_BD
 {
-    public sealed partial class PageAffichageProjet : Page
+    /// <summary>
+    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// </summary>
+    public sealed partial class PageModifierAdmin : Page
     {
-        public PageAffichageProjet()
+        public PageModifierAdmin()
         {
             this.InitializeComponent();
-            gvListeProjet.Items.Clear();
-            gvListeProjet.ItemsSource = SingletonProjet.getInstance().GetListeProjet();
-        }
-
-        private void gvListeProjet_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (gvListeProjet.SelectedIndex >= 0)
-                this.Frame.Navigate(typeof(PageZoomProjet), gvListeProjet.SelectedIndex);
         }
     }
 }

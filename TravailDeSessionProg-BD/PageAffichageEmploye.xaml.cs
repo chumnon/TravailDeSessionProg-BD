@@ -26,6 +26,14 @@ namespace TravailDeSessionProg_BD
         public PageAffichageEmploye()
         {
             this.InitializeComponent();
+            gvListeEmploye.Items.Clear();
+            gvListeEmploye.ItemsSource = SingletonEmploye.getInstance().GetListeEmploye();
+        }
+
+        private void gvListeEmploye_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (gvListeEmploye.SelectedIndex >= 0)
+                this.Frame.Navigate(typeof(PageZoomEmploye), gvListeEmploye.SelectedIndex);
         }
     }
 }

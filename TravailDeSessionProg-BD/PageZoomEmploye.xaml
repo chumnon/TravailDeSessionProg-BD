@@ -53,11 +53,8 @@
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="btSupprimer" Grid.Column="0" HorizontalAlignment="Center" FontSize="20" 
-            Background="LightGray" Click="btSupprimer_Click">
-                <TextBlock>Supprimer l'employé</TextBlock>
-            </Button>
-            <Button x:Name="btModifier" Grid.Column="1" HorizontalAlignment="Center" FontSize="20" 
+            
+            <Button x:Name="btModifier" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="20" 
             Background="LightGray" Click="btModifier_Click">
                 <TextBlock>Modifier l'employé</TextBlock>
             </Button>

@@ -25,6 +25,15 @@ namespace TravailDeSessionProg_BD
     {
         public PageAffichageClient()
         {
+            this.InitializeComponent();
+            gvListeClient.Items.Clear();
+            gvListeClient.ItemsSource = SingletonClient.getInstance().GetListeClient();
+        }
+
+        private void btMod_Click(object sender, RoutedEventArgs e)
+        {
+            if (gvListeClient.SelectedIndex >= 0)
+                this.Frame.Navigate(typeof(PageModifierClient), gvListeClient.SelectedIndex);
         }
     }
 }

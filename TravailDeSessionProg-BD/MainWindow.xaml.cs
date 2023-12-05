@@ -23,51 +23,55 @@ namespace TravailDeSessionProg_BD
         public MainWindow()
         {
             this.InitializeComponent();
-            mainFrame.Navigate(typeof(PageAffichageProjet));
+            //mainFrame.Navigate(typeof(PageAffichageProjet));
         }
 
         private void abButtonCon_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(typeof(PageConnexion));
+            //mainFrame.Navigate(typeof(PageConnexion));
         }
 
         private void abButtonAjoutAdmin_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(typeof(PageAjoutAdmin));
+            //mainFrame.Navigate(typeof(PageAjoutAdmin));
+        }
+        private void abButtonModAdmin_Click(object sender, RoutedEventArgs e)
+        {
+            //mainFrame.Navigate(typeof(PageModifierAdmin));
         }
         private void abButtonListeProjet_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(typeof(PageAffichageProjet));
+            //mainFrame.Navigate(typeof(PageAffichageProjet));
         }
 
         private void abButtonAjoutProjet_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(typeof(PageAjoutProjet));
+            //mainFrame.Navigate(typeof(PageAjoutProjet));
         }
 
         private void abButtonListeClient_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(typeof(PageAffichageClient));
+           // mainFrame.Navigate(typeof(PageAffichageClient));
         }
 
         private void abButtonAjoutClient_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(typeof(PageAjoutClient));
+            //mainFrame.Navigate(typeof(PageAjoutClient));
         }
 
         private void abButtonListeEmploye_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(typeof(PageAffichageEmploye));
+            //mainFrame.Navigate(typeof(PageAffichageEmploye));
         }
 
         private void abButtonAjoutEmploye_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(typeof(PageAjoutEmploye));
+            //mainFrame.Navigate(typeof(PageAjoutEmploye));
         }
 
         private async void abButtonSaveProjet_Click(object sender, RoutedEventArgs e)
         {
-            try
+           /* try
             {
                 var picker = new Windows.Storage.Pickers.FileSavePicker();
 
@@ -105,6 +109,6 @@ namespace TravailDeSessionProg_BD
 
                 ContentDialogResult resultat = await dialog.ShowAsync();
             }
-        }
+        */}
     }
 }

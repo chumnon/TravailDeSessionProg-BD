@@ -26,6 +26,9 @@ namespace TravailDeSessionProg_BD
         public PageAjoutEmploye()
         {
             this.InitializeComponent();
+            inDateEmbauche.MaxYear = DateTimeOffset.Now;
+            inDateDeNaissance.MaxYear = DateTimeOffset.Now.AddYears(-18);
+            inDateDeNaissance.MinYear = DateTimeOffset.Now.AddYears(-65);
         }
     }
 }

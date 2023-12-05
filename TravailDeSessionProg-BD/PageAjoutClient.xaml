@@ -46,7 +46,8 @@
 				<TextBlock x:Name="ErrEmail" Foreground="Red" FontSize="15" />
 			</StackPanel>
 
-			<Button x:Name="btAjouter" Grid.Row="5" Grid.ColumnSpan="4" HorizontalAlignment="Center" FontSize="20" Background="LightGray" Click="btAjouter_Click">
+			<Button x:Name="btAjouter" Grid.Row="5" Grid.ColumnSpan="4" HorizontalAlignment="Center" FontSize="20" 
+                    Background="LightGray" Click="btAjouter_Click">
 				<TextBlock>Ajouter le client</TextBlock>
 			</Button>
 		</Grid>

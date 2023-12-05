@@ -35,12 +35,13 @@
                 <TextBlock x:Name="ErrMdp" Foreground="Red" FontSize="15" />
             </StackPanel>
 
-            <StackPanel Grid.Row="3" Grid.Column="1" Padding="20">
+            <StackPanel Grid.Row="3" Padding="20">
                 <TextBox x:Name="inMdpConf" Header="Confirmation"  VerticalAlignment="Top" TextWrapping="Wrap"/>
                 <TextBlock x:Name="ErrMdpConf" Foreground="Red" FontSize="15" />
             </StackPanel>
 
-            <Button x:Name="btAjouter" Grid.Row="4" HorizontalAlignment="Center" FontSize="20" Background="LightGray" Click="btAjouter_Click">
+            <Button x:Name="btAjouter" Grid.Row="4" HorizontalAlignment="Center" FontSize="20" Background="LightGray"
+                    Click="btAjouter_Click">
                 <TextBlock>Ajouter l'admin</TextBlock>
             </Button>
         </Grid>

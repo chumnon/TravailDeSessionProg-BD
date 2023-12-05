@@ -69,17 +69,46 @@ namespace TravailDeSessionProg_BD
             return liste[position];
         }
 
-        /*public void ajouterEmploye(Employe unEmploye)
+        public int ajouterClient(Client unClient)
         {
-            Boolean err;
+            int err;
             try
             {
+
+                MySqlCommand commande = new MySqlCommand("add_client");
+                commande.Connection = con;
+                commande.CommandType = System.Data.CommandType.StoredProcedure;
+                commande.Parameters.AddWithValue("in_nom", unClient.Nom);
+                commande.Parameters.AddWithValue("in_adresse", unClient.Adresse);
+                commande.Parameters.AddWithValue("in_numTel", unClient.NumTel);
+                commande.Parameters.AddWithValue("in_email", unClient.Email);
+                con.Open();
+                commande.Prepare();
+                int i = commande.ExecuteNonQuery();
+
+                con.Close();
+                err = 0;
+                return err;
+            }
+            catch (MySqlException ex)
+            {
+                con.Close();
+                if (ex.Number == 45000)
+                {
+                    err = 1;
+                } else
+                {
+                    err = 2;
+                }
+                return err;
             }
             catch (Exception ex)
             {
-              
+                con.Close();
+                err = 2;
+                return err;
             }
-        }*/
+        }
 
         /*public void modifierEmploye(int position, Employe unEmploye)
         {
@@ -87,26 +116,6 @@ namespace TravailDeSessionProg_BD
 
         /*public void modifierStatutEmploye(int position, Employe unEmploye)
         {
-        }*/
-
-        /*public void supprimerEmploye(int position)
-        {
-            try
-            {
-                int Code = liste[position];
-                MySqlCommand commande = new MySqlCommand();
-                commande.Connection = con;
-                commande.CommandText = "DELETE from produits where Code = '" + Code + "'";
-
-                con.Open();
-                commande.ExecuteNonQuery();
-
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                con.Close();
-            }
         }*/
     }
 }
