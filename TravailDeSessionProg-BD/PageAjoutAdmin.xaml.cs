@@ -54,38 +54,43 @@ namespace TravailDeSessionProg_BD
 
             if (valide == true)
             {
-                Admin unAdmin = new Admin
+                string message = SingletonAdmin.getInstance().testMod(inNom.Text, inMdp.Text);
+                /*if (CONCAT(message,16) == "Connexion réussi")
                 {
-                    Id=0,
-                    Nom = inNom.Text,
-                    Mdp = inMdp.Text
-                };
+                    lId = CONCAT(message,+16);
+                    Admin unAdmin = new Admin
+                    {
+                        Id = lId,
+                        Nom = inNom.Text,
+                        Mdp = inMdp.Text
+                    };
 
-                Boolean err = SingletonAdmin.getInstance().ajouterAdmin(unAdmin);
+                    Boolean err = SingletonAdmin.getInstance().ajouterAdmin(unAdmin);
 
-                if (err == false)
-                {
-                    ContentDialog dialog = new ContentDialog();
-                    dialog.XamlRoot = mainGrid.XamlRoot;
-                    dialog.Title = "Ajout de l'admin";
-                    dialog.PrimaryButtonText = "OK";
-                    dialog.DefaultButton = ContentDialogButton.Primary;
-                    dialog.Content = "L'admin a été ajouté avec succès";
+                    if (err == false)
+                    {
+                        ContentDialog dialog = new ContentDialog();
+                        dialog.XamlRoot = mainGrid.XamlRoot;
+                        dialog.Title = "Ajout de l'admin";
+                        dialog.PrimaryButtonText = "OK";
+                        dialog.DefaultButton = ContentDialogButton.Primary;
+                        dialog.Content = "L'admin a été ajouté avec succès";
 
-                    ContentDialogResult resultat = await dialog.ShowAsync();
+                        ContentDialogResult resultat = await dialog.ShowAsync();
 
-                    this.Frame.Navigate(typeof(PageAffichageProjet));
-                }
-                else if (err == true)
-                {
-                    ContentDialog dialog = new ContentDialog();
-                    dialog.XamlRoot = mainGrid.XamlRoot;
-                    dialog.Title = "Ajout de l'admin";
-                    dialog.PrimaryButtonText = "OK";
-                    dialog.DefaultButton = ContentDialogButton.Primary;
-                    dialog.Content = "Erreur, l'admin n'a pas été ajouter";
+                        this.Frame.Navigate(typeof(PageAffichageProjet));
+                    }
+                    else if (err == true)
+                    {
+                        ContentDialog dialog = new ContentDialog();
+                        dialog.XamlRoot = mainGrid.XamlRoot;
+                        dialog.Title = "Ajout de l'admin";
+                        dialog.PrimaryButtonText = "OK";
+                        dialog.DefaultButton = ContentDialogButton.Primary;
+                        dialog.Content = "Erreur, l'admin n'a pas été ajouter";
 
-                    ContentDialogResult resultat = await dialog.ShowAsync();
+                        ContentDialogResult resultat = await dialog.ShowAsync();
+                    }*/
                 }
             }
         }

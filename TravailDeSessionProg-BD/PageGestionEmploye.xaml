@@ -15,16 +15,19 @@
 			<ColumnDefinition Width="1*" />
 			<ColumnDefinition Width="2*" />
 		</Grid.ColumnDefinitions>
+        
  		<StackPanel Grid.Column="0" Padding="20"  VerticalAlignment="Center" >
-			<ComboBox x:Name="inEmploye" Header="Employés disponible" HorizontalAlignment="Stretch" >
-				ItemsSource="{x:Bind employe}">
+            <ComboBox x:Name="ListeEmploye" x:DataType="local:Employe" x:Name="inEmploye" Header="Employés disponible" HorizontalAlignment="Stretch"
+				ItemsSource="{x:Bind Matricule}">
 			</ComboBox>
 			<TextBlock x:Name="ErrEmploye" Foreground="Red" FontSize="15" />
 		</StackPanel>
+        
 		 <StackPanel Grid.Column="1" Padding="20"  VerticalAlignment="Center">
-                	<TextBox x:Name="inNbrHeure" Header="Nombre d'heure"  VerticalAlignment="Center" TextWrapping="Wrap"/>
-                	<TextBlock x:Name="ErrNbrHeure" Foreground="Red" FontSize="15" />
-            	</StackPanel>
+             <TextBox x:Name="inNbrHeure" Header="Nombre d'heure"  VerticalAlignment="Center" TextWrapping="Wrap"/>
+             <TextBlock x:Name="ErrNbrHeure" Foreground="Red" FontSize="15" />
+         </StackPanel>
+        
         <Button x:Name="btAjoutTache" Grid.Column="1" VerticalAlignment="Center" FontSize="20" 
         Background="LightGray" Click="btAjoutTache_Click">
             <TextBlock>Ajouter l'employé</TextBlock>

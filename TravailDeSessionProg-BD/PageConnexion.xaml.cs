@@ -32,12 +32,30 @@ namespace TravailDeSessionProg_BD
         {
             string message = SingletonAdmin.getInstance().connexion(inNom.Text, inMdp.Text);
             if (message == "Connexion réussi") {
-                //VARAIBLE DE PLUSIEUR PAGE POUR DIRE QUE ADMIN = TRUE
-                //AFFICAHGE RÉUSSITE
+
+                //VARAIBLE DES PAGES POUR DIRE QUE ADMIN = TRUE
+
+                ContentDialog dialog = new ContentDialog();
+                dialog.XamlRoot = mainGrid.XamlRoot;
+                dialog.Title = "Connexion";
+                dialog.PrimaryButtonText = "OK";
+                dialog.DefaultButton = ContentDialogButton.Primary;
+                dialog.Content = "Vous vous êtes bien connecté";
+
+                ContentDialogResult resultat = await dialog.ShowAsync();
+
+                this.Frame.Navigate(typeof(PageAffichageEmploye));
             }
             else
             {
-                ///AFFICHAGE PINPON
+                ContentDialog dialog = new ContentDialog();
+                dialog.XamlRoot = mainGrid.XamlRoot;
+                dialog.Title = "Connexion";
+                dialog.PrimaryButtonText = "OK";
+                dialog.DefaultButton = ContentDialogButton.Primary;
+                dialog.Content = "Erreur: " + message;
+
+                ContentDialogResult resultat = await dialog.ShowAsync();
             }
         }
     }

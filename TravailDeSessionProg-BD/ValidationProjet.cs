@@ -61,23 +61,41 @@ namespace TravailDeSessionProg_BD
         public bool isNbrEmployeValide(string nbrEmploye)
         {
             int p = 0;
-            if (int.TryParse(nbrEmploye, out p))
+            if (!string.IsNullOrEmpty(nbrEmploye.Trim()))
             {
-                return true;
+                if (int.TryParse(nbrEmploye, out p))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
+            {
                 return false;
+            }
         }
 
         public bool isClientValide(string client)
         {
             int p = 0;
-            if (int.TryParse(client, out p))
+            if (!string.IsNullOrEmpty(client.Trim()))
             {
-                return true;
+                if (int.TryParse(client, out p))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
+            {
                 return false;
+            }
         }
     }
 }

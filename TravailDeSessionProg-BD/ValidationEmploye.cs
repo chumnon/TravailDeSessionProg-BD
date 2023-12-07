@@ -87,12 +87,21 @@ namespace TravailDeSessionProg_BD
         public bool isTauxHoraireValide(string tauxHoraire)
         {
             double p = 0;
-            if (double.TryParse(tauxHoraire, out p))
+            if (!string.IsNullOrEmpty(tauxHoraire.Trim()))
             {
-                return true;
+                if (double.TryParse(tauxHoraire, out p))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
+            {
                 return false;
+            }
         }
 
         public int isPhotoValide(string photo)

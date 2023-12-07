@@ -28,17 +28,34 @@ namespace TravailDeSessionProg_BD
             return instance;
         }
 
-        /*public void ajouterTache(Tache uneTache)
+        public bool ajouterTache(Tache uneTache)
         {
-            Boolean err;
+            bool err;
             try
             {
+
+                MySqlCommand commande = new MySqlCommand("add_tache");
+                commande.Connection = con;
+                commande.CommandType = System.Data.CommandType.StoredProcedure;
+                commande.Parameters.AddWithValue("in_employe", uneTache.LEmploye);
+                commande.Parameters.AddWithValue("in_projet", uneTache.LeProjet);
+                commande.Parameters.AddWithValue("in_nbrHeure", uneTache.NbrHeure);
+
+                con.Open();
+                commande.Prepare();
+                int i = commande.ExecuteNonQuery();
+
+                con.Close();
+                err = false;
+                return err;
             }
             catch (Exception ex)
             {
-              
+                con.Close();
+                err = true;
+                return err;
             }
-        }*/
+        }
 
         /*public void supprimerTache(int position)
         {

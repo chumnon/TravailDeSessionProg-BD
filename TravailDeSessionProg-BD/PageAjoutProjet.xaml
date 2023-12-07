@@ -35,8 +35,8 @@
                 <TextBlock x:Name="ErrTitre" Foreground="Red" FontSize="15" />
             </StackPanel>
 
-            <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Padding="20" x:Name="gvListeClient">
-                <ComboBox x:DataType="local:Client" x:Name="inClient" Header="Client"  VerticalAlignment="Top" HorizontalAlignment="Stretch"
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Padding="20" >
+                <ComboBox x:Name="ListeClient" x:DataType="local:Client" x:Name="inClient" Header="Client"  VerticalAlignment="Top" HorizontalAlignment="Stretch"
                 ItemsSource="{x:Bind Id}">
                 </ComboBox>
                 <TextBlock x:Name="ErrClient" Foreground="Red" FontSize="15" />

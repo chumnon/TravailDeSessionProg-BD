@@ -46,7 +46,7 @@
                     <TextBlock x:Name="ErrMdpConf" Foreground="Red" FontSize="15" />
                 </StackPanel>
 
-                <Button x:Name="btAjouter" Grid.Row="4" HorizontalAlignment="Center" FontSize="20" Background="LightGray" Click="btAjouter_Click">
+                <Button x:Name="btModifier" Grid.Row="4" HorizontalAlignment="Center" FontSize="20" Background="LightGray" Click="btAjouter_Click">
                     <TextBlock>Modifier l'admin</TextBlock>
                 </Button>
             </Grid>

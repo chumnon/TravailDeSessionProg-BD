@@ -55,6 +55,33 @@ namespace TravailDeSessionProg_BD
             }
         }
 
+        public Boolean modifierAdmin(Admin unAdmin)
+        {
+            Boolean err;
+            try
+            {
+
+                MySqlCommand commande = new MySqlCommand("mod_admin");
+                commande.Connection = con;
+                commande.CommandType = System.Data.CommandType.StoredProcedure;
+                commande.Parameters.AddWithValue("in_nom", unAdmin.Nom);
+                commande.Parameters.AddWithValue("in_mdp", unAdmin.Mdp);
+                con.Open();
+                commande.Prepare();
+                int i = commande.ExecuteNonQuery();
+
+                con.Close();
+                err = false;
+                return err;
+            }
+            catch (Exception ex)
+            {
+                con.Close();
+                err = true;
+                return err;
+            }
+        }
+
         public string connexion(string nom, string mdp)
         {
             string message;
