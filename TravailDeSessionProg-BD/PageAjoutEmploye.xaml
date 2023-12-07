@@ -65,14 +65,6 @@
                 <TextBlock x:Name="ErrTauxHoraire" Foreground="Red" FontSize="15" />
             </StackPanel>
 
-            <StackPanel Grid.Row="4" Grid.Column="1" Padding="20" >
-                <ComboBox x:Name="inStatut" Header="Statut"  VerticalAlignment="Top" HorizontalAlignment="Stretch">
-                    <x:String>Journalier</x:String>
-                    <x:String>Permanent</x:String>
-                </ComboBox>
-                <TextBlock x:Name="ErrStatut" Foreground="Red" FontSize="15" />
-            </StackPanel>
-
             <StackPanel Grid.Row="5" Grid.ColumnSpan="3" Padding="20" >
                 <TextBox x:Name="inPhoto" Header="Photo d'identité"  VerticalAlignment="Top" TextWrapping="Wrap"/>
                 <TextBlock x:Name="ErrPhoto" Foreground="Red" FontSize="15" />

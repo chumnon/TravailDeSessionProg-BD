@@ -74,17 +74,67 @@ namespace TravailDeSessionProg_BD
             return liste[position];
         }
 
-        /*public void ajouterEmploye(Employe unEmploye)
+        public int ajouterEmploye(Employe unEmploye)
         {
-            Boolean err;
+            int err;
             try
             {
+
+                MySqlCommand commande = new MySqlCommand("add_employe");
+                commande.Connection = con;
+                commande.CommandType = System.Data.CommandType.StoredProcedure;
+                commande.Parameters.AddWithValue("in_nom", unEmploye.Nom);
+                commande.Parameters.AddWithValue("in_prenom", unEmploye.Prenom);
+                commande.Parameters.AddWithValue("in_dateDeNaissance", unEmploye.DateDeNaissance);
+                commande.Parameters.AddWithValue("in_email", unEmploye.Email);
+                commande.Parameters.AddWithValue("in_adresse", unEmploye.Adresse);
+                commande.Parameters.AddWithValue("in_dateEmbauche", unEmploye.DateEmbauche);
+                commande.Parameters.AddWithValue("in_tauxHoraire", unEmploye.TauxHoraire);
+                commande.Parameters.AddWithValue("in_photo", unEmploye.Photo);
+
+                con.Open();
+                commande.Prepare();
+                int i = commande.ExecuteNonQuery();
+
+                con.Close();
+                err = 0;
+                return err;
+            }
+            catch (MySqlException ex)
+            {
+                con.Close();
+                if (ex.Number == 45000)
+                {
+                    if (ex.Message.Contains("L'employer ne peut pas être trop payer (max 75$/h)"))
+                    {
+                        err = 1;
+                    }
+                    else if (ex.Message.Contains("L'employer ne peut pas être sous-payer (min 15$/h)"))
+                    {
+                        err = 2;
+                    }
+                    else if (ex.Message.Contains("L'adresse email n'est pas valide"))
+                    {
+                        err = 3;
+                    }
+                    else
+                    {
+                        err = 4;
+                    }
+                }
+                else
+                {
+                    err = 4;
+                }
+                return err;
             }
             catch (Exception ex)
             {
-              
+                con.Close();
+                err = 4;
+                return err;
             }
-        }*/
+        }
 
         /*public void modifierEmploye(int position, Employe unEmploye)
         {
@@ -92,26 +142,6 @@ namespace TravailDeSessionProg_BD
 
         /*public void modifierStatutEmploye(int position, Employe unEmploye)
         {
-        }*/
-
-        /*public void supprimerEmploye(int position)
-        {
-            try
-            {
-                int Code = liste[position];
-                MySqlCommand commande = new MySqlCommand();
-                commande.Connection = con;
-                commande.CommandText = "DELETE from produits where Code = '" + Code + "'";
-
-                con.Open();
-                commande.ExecuteNonQuery();
-
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                con.Close();
-            }
         }*/
     }
 }

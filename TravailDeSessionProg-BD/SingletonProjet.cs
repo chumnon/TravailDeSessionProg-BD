@@ -111,40 +111,39 @@ namespace TravailDeSessionProg_BD
             return liste[position];
         }
 
-        /*public void ajouterProjet(Projet unProjet)
+        public bool ajouterProjet(Projet unProjet)
         {
-            Boolean err;
+            bool err;
             try
             {
-            }
-            catch (Exception ex)
-            {
-              
-            }
-        }*/
 
-        /*public void modifierProjet(int position, Projet unProjet)
-        {
-        }*/
-
-        /*public void supprimerProjet(int position)
-        {
-            try
-            {
-                int Code = liste[position];
-                MySqlCommand commande = new MySqlCommand();
+                MySqlCommand commande = new MySqlCommand("add_projet");
                 commande.Connection = con;
-                commande.CommandText = "DELETE from produits where Code = '" + Code + "'";
+                commande.CommandType = System.Data.CommandType.StoredProcedure;
+                commande.Parameters.AddWithValue("in_titre", unProjet.Titre);
+                commande.Parameters.AddWithValue("in_dateDebut", unProjet.DateDebut);
+                commande.Parameters.AddWithValue("in_description", unProjet.Description);
+                commande.Parameters.AddWithValue("in_budget", unProjet.Budget);
+                commande.Parameters.AddWithValue("in_nbrEmploye", unProjet.NbrEmploye);
+                commande.Parameters.AddWithValue("in_client", unProjet.SonClient);
 
                 con.Open();
-                commande.ExecuteNonQuery();
+                commande.Prepare();
+                int i = commande.ExecuteNonQuery();
 
                 con.Close();
+                err = false;
+                return err;
             }
             catch (Exception ex)
             {
                 con.Close();
+                err = true;
+                return err;
             }
+        }
+        /*public void modifierProjet(int position, Projet unProjet)
+        {
         }*/
     }
 }

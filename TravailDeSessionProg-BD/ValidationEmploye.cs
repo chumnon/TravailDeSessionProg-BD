@@ -97,6 +97,7 @@ namespace TravailDeSessionProg_BD
 
         public int isPhotoValide(string photo)
         {
+            Uri photoUri;
             if (!string.IsNullOrEmpty(photo.Trim()))
             {
                 return 0;
@@ -105,8 +106,16 @@ namespace TravailDeSessionProg_BD
             {
                 try
                 {
-                    photo = new Uri(photo);
-                    return 2;
+                    photoUri = new Uri(photo);
+                    if(photoUri == null)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 2;
+                         
+                    }
                 }
                 catch
                 {

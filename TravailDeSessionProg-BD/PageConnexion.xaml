@@ -22,8 +22,8 @@
         <TextBox x:Name="inNom"  Header="Compte" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="0" Grid.Row="0"/>
         <TextBox x:Name="inMdp"  Header="Mot de passe" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="0"/>
 
-        <Button x:Name="btAjoutTache" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Top" FontSize="20" 
-            Background="LightGray" Click="btAjoutTache_Click">
+        <Button x:Name="btConnexion" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Top" FontSize="20" 
+            Background="LightGray" Click="btConnexion_Click">
             <TextBlock>Connexion</TextBlock>
         </Button>
     </Grid>

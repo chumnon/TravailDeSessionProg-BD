@@ -27,5 +27,18 @@ namespace TravailDeSessionProg_BD
         {
             this.InitializeComponent();
         }
+
+        private async void btConnexion_Click(object sender, RoutedEventArgs e)
+        {
+            string message = SingletonAdmin.getInstance().connexion(inNom.Text, inMdp.Text);
+            if (message == "Connexion réussi") {
+                //VARAIBLE DE PLUSIEUR PAGE POUR DIRE QUE ADMIN = TRUE
+                //AFFICAHGE RÉUSSITE
+            }
+            else
+            {
+                ///AFFICHAGE PINPON
+            }
+        }
     }
 }

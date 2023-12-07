@@ -55,6 +55,35 @@ namespace TravailDeSessionProg_BD
             }
         }
 
+        public string connexion(string nom, string mdp)
+        {
+            string message;
+            try
+            {
+
+                MySqlCommand commande = new MySqlCommand("connexion");
+                commande.Connection = con;
+                commande.CommandType = System.Data.CommandType.StoredFonction;
+                commande.Parameters.AddWithValue("in_nom", nom);
+                commande.Parameters.AddWithValue("in_mdp", mdp);
+                con.Open();
+                commande.Prepare();
+
+                commande.CommandType = System.Data.CommandType.Text;
+
+                message = commande.ExecuteScalar().ToString();
+
+                con.Close();
+                return message;
+            }
+            catch (Exception ex)
+            {
+                con.Close();
+                message = "Il y a une erreur lors de la connexion à la base de données";
+                return message;
+            }
+        }
+
         /*public ObservableCollection<Admin> GetListeClient()
         {
             liste.Clear();
