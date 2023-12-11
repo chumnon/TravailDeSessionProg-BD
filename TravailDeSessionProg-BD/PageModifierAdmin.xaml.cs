@@ -70,7 +70,7 @@ namespace TravailDeSessionProg_BD
 
                 if (message == "Connexion réussi")
                 {
-                    Admin unAdmin = new Admin
+                    Admin unAdmin = new Admi
                     {
                         Id = 0,
                         Nom = inNewNom.Text,
