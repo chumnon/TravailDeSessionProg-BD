@@ -94,7 +94,7 @@ namespace TravailDeSessionProg_BD
             {
                 Employe unEmploye = new Employe
                 {
-                    Matricule = "",
+                    Matricule = matricule,
                     Prenom = inPrenom.Text,
                     Nom = inNom.Text,
                     DateDeNaissance = "",
@@ -105,16 +105,16 @@ namespace TravailDeSessionProg_BD
                     Photo = inPhoto.Text
                 };
 
-                /*int err = SingletonEmploye.getInstance().modifierEmploye(matricule,unEmploye);
+                int err = SingletonEmploye.getInstance().modifierEmploye(unEmploye);
 
                 if (err == 0)
                 {
                     ContentDialog dialog = new ContentDialog();
                     dialog.XamlRoot = mainGrid.XamlRoot;
-                    dialog.Title = "Ajout de l'employé";
+                    dialog.Title = "Modification de l'employé";
                     dialog.PrimaryButtonText = "OK";
                     dialog.DefaultButton = ContentDialogButton.Primary;
-                    dialog.Content = "L'employé a été ajouté avec succès";
+                    dialog.Content = "L'employé a été modifier avec succès";
 
                     ContentDialogResult resultat = await dialog.ShowAsync();
 
@@ -136,13 +136,13 @@ namespace TravailDeSessionProg_BD
                 {
                     ContentDialog dialog = new ContentDialog();
                     dialog.XamlRoot = mainGrid.XamlRoot;
-                    dialog.Title = "Ajout de l'employé";
+                    dialog.Title = "Modification de l'employé";
                     dialog.PrimaryButtonText = "OK";
                     dialog.DefaultButton = ContentDialogButton.Primary;
-                    dialog.Content = "Erreur, l'employé n'a pas pu être ajouter";
+                    dialog.Content = "Erreur, l'employé n'a pas pu être modifier";
 
                     ContentDialogResult resultat = await dialog.ShowAsync();
-                }*/
+                }
             }
         }
 

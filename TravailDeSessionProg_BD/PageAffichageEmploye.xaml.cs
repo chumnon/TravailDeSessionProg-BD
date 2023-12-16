@@ -25,6 +25,11 @@ namespace TravailDeSessionProg_BD
             this.InitializeComponent();
             gvListeEmploye.Items.Clear();
             gvListeEmploye.ItemsSource = SingletonEmploye.getInstance().GetListeEmploye();
+
+            if (modeAdmin.Admin == false)
+            {
+                btModifier.Visibility = Visibility.Collapsed;
+            }
         }
 
         private async void btModifier_Click(object sender, RoutedEventArgs e)

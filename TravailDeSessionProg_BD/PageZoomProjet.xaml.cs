@@ -29,6 +29,12 @@ namespace TravailDeSessionProg_BD
         {
             this.InitializeComponent();
             gvListeTache.Items.Clear();
+
+            if(modeAdmin.Admin == false)
+            {
+                btAjoutTache.Visibility = Visibility.Collapsed;
+                btTerminerProjet.Visibility = Visibility.Collapsed;
+            }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

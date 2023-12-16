@@ -18,9 +18,11 @@
     <None Remove="PageAffichageClient.xaml" />
     <None Remove="PageAffichageEmploye.xaml" />
     <None Remove="PageAffichageProjet.xaml" />
+    <None Remove="PageAjoutAdmin.xaml" />
     <None Remove="PageAjoutClient.xaml" />
     <None Remove="PageAjoutEmploye.xaml" />
     <None Remove="PageAjoutProjet.xaml" />
+    <None Remove="PageConnexion.xaml" />
     <None Remove="PageGestionEmploye.xaml" />
     <None Remove="PageModifierEmploye.xaml" />
     <None Remove="PageZoomEmploye.xaml" />
@@ -54,6 +56,16 @@
   -->
   <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <ProjectCapability Include="Msix" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="PageConnexion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="PageAjoutAdmin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="PageAjoutEmploye.xaml">
