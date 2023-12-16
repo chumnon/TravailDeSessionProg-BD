@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="TravailDeSessionProg_BD.PageGestionEmploye"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TravailDeSessionProg_BD"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="mainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Padding="20" VerticalAlignment="Center">
+            <ComboBox x:Name="inEmploye" Header="Employés disponibles" HorizontalAlignment="Stretch">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate x:DataType="local:Employe">
+                        <TextBlock Text="{x:Bind Matricule}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <TextBlock x:Name="ErrEmploye" Foreground="Red" FontSize="15" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Padding="20"  VerticalAlignment="Center">
+            <TextBox x:Name="inNbrHeure" Header="Nombre d'heure"  VerticalAlignment="Center" TextWrapping="Wrap"/>
+            <TextBlock x:Name="ErrNbrHeure" Foreground="Red" FontSize="15" />
+        </StackPanel>
+
+        <Button x:Name="btAjoutTache" Grid.Column="2" VerticalAlignment="Center" FontSize="20" 
+    Background="LightGray" Click="btAjoutTache_Click">
+            <TextBlock>Ajouter l'employé</TextBlock>
+        </Button>
+    </Grid>
+</Page>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="TravailDeSessionProg_BD.PageAffichageProjet"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TravailDeSessionProg_BD"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="mainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Liste des projets" Margin="15" FontSize="40" FontFamily="Terminal" Grid.Row="0"/>
+        
+        <GridView x:Name="gvListeProjet" Grid.Row="1" Padding="20" SelectionChanged="gvListeProjet_SelectionChanged">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="local:Projet" >
+                    <StackPanel Margin="5" Background="White" Width="250" Height="175">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*" />
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="{x:Bind Titre}" Grid.Row="0" FontWeight="Bold" Grid.ColumnSpan="2" FontSize="20" TextAlignment="Center" Margin="0,10,0,0"/>
+                            <TextBlock Text="{x:Bind Numero}" Grid.Row="1" FontSize="20"  Grid.ColumnSpan="2" TextAlignment="Center" Margin="0,0,0,10"/>
+                            <TextBlock Text="Client: " Grid.Row="2" Grid.Column="0" FontSize="20" TextAlignment="Center"/>
+                            <TextBlock Text="{x:Bind SonClient}" Grid.Row="2"  Grid.Column="1"  FontSize="20" TextAlignment="Left"/>
+                            <TextBlock Text="Début: " Grid.Row="3" Grid.Column="0" FontSize="20" TextAlignment="Center"/>
+                            <TextBlock Text="{x:Bind DateDebut}" Grid.Row="3" Grid.Column="1" FontSize="20" TextAlignment="Left"/>
+                            <TextBlock Text="Budget: " Grid.Row="4" Grid.Column="0" FontSize="20" TextAlignment="Center"/>
+                            <TextBlock Text="{x:Bind Budget}" Grid.Row="4" Grid.Column="1" FontSize="20" TextAlignment="Left"/>
+                        </Grid>
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+    </Grid>
+</Page>

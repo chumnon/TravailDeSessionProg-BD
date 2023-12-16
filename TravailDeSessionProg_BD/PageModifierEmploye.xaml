@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="TravailDeSessionProg_BD.PageModifierEmploye"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TravailDeSessionProg_BD"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <ScrollViewer>
+        <Grid Padding="40" x:Name="mainGrid" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Modifier l'employé" FontSize="40" 
+               Grid.ColumnSpan="3" Grid.Row="0" FontWeight="Bold"
+               HorizontalAlignment="Center"/>
+
+            <StackPanel Grid.Row="1" Padding="20"  Grid.Column="0">
+                <TextBox x:Name="inPrenom"  Header="Prenom" VerticalAlignment="Top"/>
+                <TextBlock x:Name="ErrPrenom" Foreground="Red" FontSize="15" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.Column="1" Padding="20">
+                <TextBox x:Name="inNom"  Header="Nom" VerticalAlignment="Top"/>
+                <TextBlock x:Name="ErrNom" Foreground="Red" FontSize="15" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.Column="2" Padding="20" >
+                <TextBox x:Name="inTauxHoraire" Header="Taux horaire"  VerticalAlignment="Top" TextWrapping="Wrap"/>
+                <TextBlock x:Name="ErrTauxHoraire" Foreground="Red" FontSize="15" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Grid.ColumnSpan="3" Padding="20">
+                <TextBox x:Name="inEmail" Header="Email"  VerticalAlignment="Top" TextWrapping="Wrap"/>
+                <TextBlock x:Name="ErrEmail" Foreground="Red" FontSize="15" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="3" Grid.ColumnSpan="3" Padding="20" >
+                <TextBox x:Name="inAdresse" Header="Adresse"  VerticalAlignment="Top" TextWrapping="Wrap"/>
+                <TextBlock x:Name="ErrAdresse" Foreground="Red" FontSize="15" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="4" Grid.ColumnSpan="3" Padding="20" >
+                <TextBox x:Name="inPhoto" Header="Photo d'identité"  VerticalAlignment="Top" TextWrapping="Wrap"/>
+                <TextBlock x:Name="ErrPhoto" Foreground="Red" FontSize="15" />
+            </StackPanel>
+
+            <Button x:Name="btModifier" Grid.Row="6" Grid.ColumnSpan="4" HorizontalAlignment="Center" FontSize="20" 
+                    Background="LightGray" Click="btModifier_Click">
+                <TextBlock>Modifier l'employé</TextBlock>
+            </Button>
+        </Grid>
+    </ScrollViewer>
+</Page>

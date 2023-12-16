@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="TravailDeSessionProg_BD.PageAffichageEmploye"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TravailDeSessionProg_BD"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="mainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Liste des employés" Margin="15" FontSize="40" FontFamily="Terminal" Grid.Row="0"/>
+
+        <GridView x:Name="gvListeEmploye" Grid.Row="1" Padding="20">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="local:Employe" >
+                    <StackPanel Margin="5" Background="White" Width="600" Height="auto">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="4*" />
+                                <ColumnDefinition Width="7*" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="{x:Bind Prenom}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontWeight="Bold" FontSize="20" TextAlignment="Left"/>
+                            <TextBlock Text="{x:Bind Nom}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontWeight="Bold" FontSize="20" TextAlignment="Left"/>
+                            <TextBlock Text="{x:Bind Matricule}" Grid.Row="2"  Grid.Column="0" Grid.ColumnSpan="2" FontSize="20" TextAlignment="Left"/>
+                            <TextBlock Text="Date de naissance: " Grid.Row="3" Grid.Column="0" FontSize="20"  TextAlignment="Left"/>
+                            <TextBlock Text="{x:Bind DateDeNaissance}" Grid.Row="3" Grid.Column="1" FontSize="20"  TextAlignment="Left"/>
+                            <TextBlock Text="{x:Bind Email}" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20"  TextAlignment="Left"/>
+                            <TextBlock Text="{x:Bind Adresse}" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20" TextAlignment="Left"/>
+                            <TextBlock Text="Taux horaire: " Grid.Row="6" Grid.Column="0" FontSize="20" TextAlignment="Left"/>
+                            <TextBlock Text="{x:Bind TauxHoraire}" Grid.Row="6" Grid.Column="1" FontSize="20" TextAlignment="Left"/>
+                            <TextBlock Text="Date d'embauche: " Grid.Row="7" Grid.Column="0" FontSize="20" TextAlignment="Left"/>
+                            <TextBlock Text="{x:Bind DateEmbauche}" Grid.Row="7" Grid.Column="1" FontSize="20" TextAlignment="Left"/>
+                            <TextBlock Text="{x:Bind Statut}" Grid.Row="8" Grid.Column="0" FontSize="20" TextAlignment="Left"/>
+                            <Image Source="{x:Bind Photo}" Grid.RowSpan="9" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+        <Button x:Name="btModifier" Grid.Row="2" HorizontalAlignment="Center" FontSize="20" 
+        Background="LightGray" Margin="0,15,0,15" Click="btModifier_Click">
+            <TextBlock>Modifier l'employé</TextBlock>
+        </Button>
+    </Grid>
+</Page>
