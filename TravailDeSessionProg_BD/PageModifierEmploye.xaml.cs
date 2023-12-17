@@ -27,7 +27,7 @@ namespace TravailDeSessionProg_BD
             this.InitializeComponent();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             if (e.Parameter is not null)
             {
@@ -41,6 +41,26 @@ namespace TravailDeSessionProg_BD
                 inAdresse.Text = unEmploye.Adresse;
                 inTauxHoraire.Text = unEmploye.TauxHoraire.ToString();
                 inPhoto.Text = unEmploye.Photo;
+                if(unEmploye.Statut == "Permanent")
+                {
+                    inStatut.IsChecked = true;
+                }
+
+                if(SingletonEmploye.getInstance().checkAncienneteEmploye(matricule) == 0)
+                {
+                    inStatut.Visibility = Visibility.Collapsed;
+                }
+                else if (SingletonEmploye.getInstance().checkAncienneteEmploye(matricule) == 2)
+                {
+                    ContentDialog dialog = new ContentDialog();
+                    dialog.XamlRoot = mainGrid.XamlRoot;
+                    dialog.Title = "Erreur";
+                    dialog.PrimaryButtonText = "OK";
+                    dialog.DefaultButton = ContentDialogButton.Primary;
+                    dialog.Content = "Il y a eu un problème de connexion à la bd";
+
+                    ContentDialogResult resultat = await dialog.ShowAsync();
+                }
             }
         }
         private async void btModifier_Click(object sender, RoutedEventArgs e)
@@ -92,6 +112,15 @@ namespace TravailDeSessionProg_BD
 
             if (valide == true)
             {
+                string statut;
+                if(inStatut.IsChecked == true)
+                {
+                    statut = "Permanent";
+                } else
+                {
+                    statut = "Journalier";
+                }
+
                 Employe unEmploye = new Employe
                 {
                     Matricule = matricule,
@@ -102,7 +131,8 @@ namespace TravailDeSessionProg_BD
                     Adresse = inAdresse.Text,
                     DateEmbauche = "",
                     TauxHoraire = double.Parse(inTauxHoraire.Text),
-                    Photo = inPhoto.Text
+                    Photo = inPhoto.Text,
+                    Statut = statut
                 };
 
                 int err = SingletonEmploye.getInstance().modifierEmploye(unEmploye);

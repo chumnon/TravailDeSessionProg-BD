@@ -15,11 +15,12 @@ namespace TravailDeSessionProg_BD
         public string Budget { get; set; }
         public int NbrEmploye { get; set; }
         public double SalaireTotal { get; set; }
+        public string SalaireTotalFormat { get => SalaireTotal.ToString("C"); }
         public int SonClient { get; set; }
         public string Statut { get; set; }
         public string ToStringProjet()
         {
-            string leString = Numero + ";" + Titre + ";" + DateDebut + ";" + Description + ";" + Budget + ";" + NbrEmploye.ToString() + ";" + SalaireTotal.ToString() + ";" + SonClient.ToString() + ";" + Statut;
+            string leString = Numero + ";" + Titre + ";" + DateDebut.Substring(0, 10) + ";" + Description + ";" + Budget + ";" + NbrEmploye.ToString() + ";" + SalaireTotal.ToString() + ";" + SonClient.ToString() + ";" + Statut;
             return leString;
         }
     }

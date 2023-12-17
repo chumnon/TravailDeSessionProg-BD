@@ -24,14 +24,14 @@ namespace TravailDeSessionProg_BD
         {
             this.InitializeComponent();
             gvListeProjet.Items.Clear();
-            gvListeProjet.ItemsSource = SingletonProjet.getInstance().GetListeProjet();
+            gvListeProjet.ItemsSource = SingletonCarteProjet.getInstance().GetListeCarteProjet();
         }
 
         private void gvListeProjet_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (gvListeProjet.SelectedIndex >= 0)
             {
-                var numeroProjet = (gvListeProjet.SelectedItem as Projet)?.Numero;
+                var numeroProjet = (gvListeProjet.SelectedItem as CarteProjet)?.Numero;
                 this.Frame.Navigate(typeof(PageZoomProjet), numeroProjet);
             }
         }

@@ -13,5 +13,6 @@ namespace TravailDeSessionProg_BD
         public string Adresse { get; set; }
         public string NumTel { get; set; }
         public string Email { get; set; }
+        public string PetiteInfo { get => Id.ToString() + " " + Nom.ToString(); }
     }
 }

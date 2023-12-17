@@ -9,17 +9,17 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid x:Name="mainGrid">
+    <Grid x:Name="mainGrid" Background="LightSteelBlue">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock Text="Liste des clients" Margin="15" FontSize="40" FontFamily="Terminal" Grid.Row="0"/>
+        <TextBlock Text="Liste des clients" Margin="15" FontSize="40" FontFamily="Terminal" FontWeight="SemiBold" Foreground="LightSeaGreen" Grid.Row="0"/>
 
         <GridView x:Name="gvListeClient" Grid.Row="1" Padding="20">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="local:Client" >
-                    <StackPanel Margin="5" Background="White" Width="400" Height="175">
+                    <StackPanel Margin="5" Background="White" BorderBrush="LightGray" BorderThickness="2" Width="400" Height="175">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="2*" />

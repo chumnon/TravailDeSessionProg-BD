@@ -16,6 +16,7 @@ namespace TravailDeSessionProg_BD
         public string Adresse { get; set; }
         public string DateEmbauche { get; set; }
         public double TauxHoraire { get; set; }
+        public string FormatTauxHoraire { get => TauxHoraire.ToString() + "$/h"; }
         public string Photo { get; set; }
         public string Statut { get; set; }
     }

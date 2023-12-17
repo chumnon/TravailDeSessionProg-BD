@@ -9,32 +9,39 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid x:Name="mainGrid">
+    <Grid x:Name="mainGrid" Background="ForestGreen">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*" />
-            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="0" Padding="20" VerticalAlignment="Center">
-            <ComboBox x:Name="inEmploye" Header="Employés disponibles" HorizontalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="0" Grid.Row="1" Padding="20" VerticalAlignment="Center" Background="MediumPurple">
+            <ComboBox x:Name="inEmploye" Header="Employés disponibles" HorizontalAlignment="Stretch" Background="Lavender">
                 <ComboBox.ItemTemplate>
                     <DataTemplate x:DataType="local:Employe">
-                        <TextBlock Text="{x:Bind Matricule}" />
+                        <TextBlock Text="{x:Bind Matricule}"/>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            <TextBlock x:Name="ErrEmploye" Foreground="Red" FontSize="15" />
+            <TextBlock x:Name="ErrEmploye" Foreground="Red" FontWeight="bold" FontSize="15"/>
         </StackPanel>
 
-        <StackPanel Grid.Column="1" Padding="20"  VerticalAlignment="Center">
-            <TextBox x:Name="inNbrHeure" Header="Nombre d'heure"  VerticalAlignment="Center" TextWrapping="Wrap"/>
-            <TextBlock x:Name="ErrNbrHeure" Foreground="Red" FontSize="15" />
+        <StackPanel Grid.Column="1" Grid.Row="1" Padding="20"  VerticalAlignment="Center" Background="MediumPurple">
+            <TextBox x:Name="inNbrHeure" Header="Nombre d'heure"  VerticalAlignment="Center" TextWrapping="Wrap"  Background="Lavender"/>
+            <TextBlock x:Name="ErrNbrHeure" Foreground="Red" FontWeight="bold" FontSize="15" />
         </StackPanel>
 
-        <Button x:Name="btAjoutTache" Grid.Column="2" VerticalAlignment="Center" FontSize="20" 
-    Background="LightGray" Click="btAjoutTache_Click">
+        <StackPanel Background="MediumPurple" Grid.Column="2" Padding="39" VerticalAlignment="Center" Grid.Row="1">
+            <Button x:Name="btAjoutTache" FontSize="20" Background="Lavender" Click="btAjoutTache_Click">
             <TextBlock>Ajouter l'employé</TextBlock>
         </Button>
+        </StackPanel>
     </Grid>
 </Page>

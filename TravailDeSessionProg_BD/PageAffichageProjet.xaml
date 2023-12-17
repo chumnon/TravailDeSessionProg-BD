@@ -9,17 +9,17 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid x:Name="mainGrid">
+    <Grid x:Name="mainGrid" Background="Purple">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock Text="Liste des projets" Margin="15" FontSize="40" FontFamily="Terminal" Grid.Row="0"/>
+        <TextBlock Text="Liste des projets" Margin="15" FontSize="40" FontFamily="Terminal" Foreground="DeepPink" FontWeight="ExtraBold" Grid.Row="0" />
         
         <GridView x:Name="gvListeProjet" Grid.Row="1" Padding="20" SelectionChanged="gvListeProjet_SelectionChanged">
             <GridView.ItemTemplate>
-                <DataTemplate x:DataType="local:Projet" >
-                    <StackPanel Margin="5" Background="White" Width="250" Height="175">
+                <DataTemplate x:DataType="local:CarteProjet" >
+                    <StackPanel Margin="5" Background="LightPink" BorderBrush="HotPink" BorderThickness="3" Width="325" Height="175">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="2*" />
@@ -36,7 +36,7 @@
                             <TextBlock Text="{x:Bind Titre}" Grid.Row="0" FontWeight="Bold" Grid.ColumnSpan="2" FontSize="20" TextAlignment="Center" Margin="0,10,0,0"/>
                             <TextBlock Text="{x:Bind Numero}" Grid.Row="1" FontSize="20"  Grid.ColumnSpan="2" TextAlignment="Center" Margin="0,0,0,10"/>
                             <TextBlock Text="Client: " Grid.Row="2" Grid.Column="0" FontSize="20" TextAlignment="Center"/>
-                            <TextBlock Text="{x:Bind SonClient}" Grid.Row="2"  Grid.Column="1"  FontSize="20" TextAlignment="Left"/>
+                            <TextBlock Text="{x:Bind NomClient}" Grid.Row="2"  Grid.Column="1"  FontSize="20" TextAlignment="Left"/>
                             <TextBlock Text="Début: " Grid.Row="3" Grid.Column="0" FontSize="20" TextAlignment="Center"/>
                             <TextBlock Text="{x:Bind DateDebut}" Grid.Row="3" Grid.Column="1" FontSize="20" TextAlignment="Left"/>
                             <TextBlock Text="Budget: " Grid.Row="4" Grid.Column="0" FontSize="20" TextAlignment="Center"/>

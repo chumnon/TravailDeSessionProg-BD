@@ -37,7 +37,7 @@ namespace TravailDeSessionProg_BD
             }
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             if (e.Parameter is not null)
             {
@@ -51,19 +51,39 @@ namespace TravailDeSessionProg_BD
                 outDescription.Text = "Desciption: \n" + unProjet.Description.ToString();
                 outBudget.Text = "Budget: " + unProjet.Budget.ToString();
                 outNbrEmploye.Text = "Nombre d'employe: " + unProjet.NbrEmploye.ToString();
-                outSalaireTotal.Text = "Salaire total: " + unProjet.SalaireTotal.ToString();
                 outClient.Text = "Client: " + unProjet.SonClient.ToString();
                 outStatut.Text = "Statut: " + unProjet.Statut.ToString();
+
+                if (SingletonProjet.getInstance().checkStatutProjet(index) == 0)
+                {
+                    outSalaireTotal.Text = "Salaire total: " + unProjet.SalaireTotalFormat.ToString();
+                }
+                if (SingletonProjet.getInstance().checkStatutProjet(index) == 1)
+                {
+                    projetFini();
+                    outSalaireTotal.Text = "Salaire payée aux employés: " + unProjet.SalaireTotalFormat.ToString();
+                }
+                else if (SingletonProjet.getInstance().checkStatutProjet(index) == 2)
+                {
+                    ContentDialog dialog = new ContentDialog();
+                    dialog.XamlRoot = mainGrid.XamlRoot;
+                    dialog.Title = "Erreur";
+                    dialog.PrimaryButtonText = "OK";
+                    dialog.DefaultButton = ContentDialogButton.Primary;
+                    dialog.Content = "Il y a eu un problème de connexion à la bd";
+
+                    ContentDialogResult resultat = await dialog.ShowAsync();
+                }
             }
         }
 
         private async void btAjoutTache_Click(object sender, RoutedEventArgs e)
         {
-            /*if(SingletonProjet.getInstance().CheckNbrEmployeProjet(index) == true)
-            {*/
+           if(SingletonProjet.getInstance().CheckNbrEmployeProjet(index) == 1)
+            {
                 this.Frame.Navigate(typeof(PageGestionEmploye), index);
-            /*}
-            else
+           }
+            else if (SingletonProjet.getInstance().CheckNbrEmployeProjet(index) == 0)
             {
                 ContentDialog dialog = new ContentDialog();
                 dialog.XamlRoot = mainGrid.XamlRoot;
@@ -73,13 +93,53 @@ namespace TravailDeSessionProg_BD
                 dialog.Content = "Vous ne pouvez pas ajouter plus de tâche à ce projet";
 
                 ContentDialogResult resultat = await dialog.ShowAsync();
-            }*/
-            
+            }
+            else
+            {
+                ContentDialog dialog = new ContentDialog();
+                dialog.XamlRoot = mainGrid.XamlRoot;
+                dialog.Title = "Ajout d'une tâche";
+                dialog.PrimaryButtonText = "OK";
+                dialog.DefaultButton = ContentDialogButton.Primary;
+                dialog.Content = "Il y a eu un problème de connexion à la bd";
+
+                ContentDialogResult resultat = await dialog.ShowAsync();
+            }
         }
 
         private async void btTerminerProjet_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(PageGestionEmploye), index);
+            bool err = SingletonProjet.getInstance().terminerProjet(index);
+
+            if(err== false) {
+                ContentDialog dialog = new ContentDialog();
+                dialog.XamlRoot = mainGrid.XamlRoot;
+                dialog.Title = "Terminer le projet";
+                dialog.PrimaryButtonText = "OK";
+                dialog.DefaultButton = ContentDialogButton.Primary;
+                dialog.Content = "Le projet est maintenant terminé";
+
+                ContentDialogResult resultat = await dialog.ShowAsync();
+
+                this.Frame.Navigate(typeof(PageZoomProjet), index);
+            } else
+            {
+                ContentDialog dialog = new ContentDialog();
+                dialog.XamlRoot = mainGrid.XamlRoot;
+                dialog.Title = "Terminer le projet";
+                dialog.PrimaryButtonText = "OK";
+                dialog.DefaultButton = ContentDialogButton.Primary;
+                dialog.Content = "Il y a eu une erreur lors du processus";
+
+                ContentDialogResult resultat = await dialog.ShowAsync();
+            }
+        }
+
+        private void projetFini()
+        {
+            btAjoutTache.Visibility = Visibility.Collapsed;
+            btTerminerProjet.Visibility = Visibility.Collapsed;
+            TitreListeTache.Visibility = Visibility.Collapsed;
         }
     }
 }

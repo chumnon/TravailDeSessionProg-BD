@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <ScrollViewer>
+    <ScrollViewer Background="MediumPurple">
         <Grid Padding="40" x:Name="mainGrid" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
@@ -27,52 +27,52 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Text="Nouveau projet" Margin="15" FontSize="40" 
-       Grid.ColumnSpan="4" Grid.Row="0" FontWeight="Bold"
+       Grid.ColumnSpan="4" Grid.Row="0" FontWeight="Bold" Foreground="PaleGoldenrod"
        HorizontalAlignment="Center"/>
 
             <StackPanel Grid.Row="1" Padding="20"  Grid.ColumnSpan="2">
-                <TextBox x:Name="inTitre"  Header="Titre" VerticalAlignment="Top"/>
-                <TextBlock x:Name="ErrTitre" Foreground="Red" FontSize="15" />
+                <TextBox x:Name="inTitre"  Header="Titre" VerticalAlignment="Top" Background="PaleGoldenrod"/>
+                <TextBlock x:Name="ErrTitre" Foreground="Red" FontWeight="bold" FontSize="15" />
             </StackPanel>
 
             <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="2" Padding="20" >
-                <ComboBox  x:Name="inClient" Header="Client"  VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                <ComboBox  x:Name="inClient" Header="Client"  VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="PaleGoldenrod">
                     <ComboBox.ItemTemplate>
                         <DataTemplate x:DataType="local:Client">
-                            <TextBlock Text="{x:Bind Id}" />
+                            <TextBlock Text="{x:Bind PetiteInfo}" />
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
-                <TextBlock x:Name="ErrClient" Foreground="Red" FontSize="15" />
+                <TextBlock x:Name="ErrClient" Foreground="Red" FontWeight="bold" FontSize="15" />
             </StackPanel>
 
             <StackPanel Grid.Row="2" Padding="20" Grid.ColumnSpan="2">
-                <DatePicker x:Name="inDateDebut" Header="Date de début"></DatePicker>
-                <TextBlock x:Name="ErrDateDebut" Foreground="Red" FontSize="15" />
+                <DatePicker x:Name="inDateDebut" Header="Date de début" Background="PaleGoldenrod"></DatePicker>
+                <TextBlock x:Name="ErrDateDebut" Foreground="Red" FontWeight="bold" FontSize="15" />
             </StackPanel>
 
             <StackPanel Grid.Row="2" Grid.Column="2" Padding="20">
-                <TextBox x:Name="inBudget" Header="Budget"  VerticalAlignment="Top" TextWrapping="Wrap"/>
-                <TextBlock x:Name="ErrBudget" Foreground="Red" FontSize="15" />
+                <TextBox x:Name="inBudget" Header="Budget"  VerticalAlignment="Top" TextWrapping="Wrap" Background="PaleGoldenrod"/>
+                <TextBlock x:Name="ErrBudget" Foreground="Red" FontWeight="bold" FontSize="15" />
             </StackPanel>
 
             <StackPanel Grid.Row="2" Grid.Column="1" Padding="20" >
-                <ComboBox x:Name="inNbrEmploye" Header="Nombre d'employé"  VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                <ComboBox x:Name="inNbrEmploye" Header="Nombre d'employé"  VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="PaleGoldenrod">
                     <x:String>1</x:String>
                     <x:String>2</x:String>
                     <x:String>3</x:String>
                     <x:String>4</x:String>
                     <x:String>5</x:String>
                 </ComboBox>
-                <TextBlock x:Name="ErrNbrEmploye" Foreground="Red" FontSize="15" />
+                <TextBlock x:Name="ErrNbrEmploye" Foreground="Red" FontWeight="bold" FontSize="15" />
             </StackPanel>
 
             <StackPanel Grid.Row="3" Grid.ColumnSpan="4" Padding="20" >
-                <TextBox x:Name="inDescription" Header="Description"  VerticalAlignment="Top" TextWrapping="Wrap"/>
-                <TextBlock x:Name="ErrDescription" Foreground="Red" FontSize="15" />
+                <TextBox x:Name="inDescription" Header="Description"  VerticalAlignment="Top" TextWrapping="Wrap" Background="PaleGoldenrod"/>
+                <TextBlock x:Name="ErrDescription" Foreground="Red" FontWeight="bold" FontSize="15" />
             </StackPanel>
 
-            <Button x:Name="btAjouter" Grid.Row="4" Grid.ColumnSpan="4" HorizontalAlignment="Center" FontSize="20" Background="LightGray" Click="btAjouter_Click">
+            <Button x:Name="btAjouter" Grid.Row="4" Grid.ColumnSpan="4" HorizontalAlignment="Center" FontSize="20" Background="PaleGoldenrod" Click="btAjouter_Click">
                 <TextBlock>Ajouter le projet</TextBlock>
             </Button>
         </Grid>

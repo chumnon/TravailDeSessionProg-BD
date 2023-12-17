@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <ScrollViewer>
+    <ScrollViewer Background="AntiqueWhite">
         <Grid Padding="40" x:Name="mainGrid" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
@@ -26,51 +26,51 @@
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Nouvel employé" FontSize="40" 
-       Grid.ColumnSpan="3" Grid.Row="0" FontWeight="Bold"
-       HorizontalAlignment="Center"/>
+            <TextBlock Text="Nouvel employé" FontSize="40" Foreground="Salmon"
+                Grid.ColumnSpan="3" Grid.Row="0" FontWeight="Bold" HorizontalAlignment="Center"/>
 
             <StackPanel Grid.Row="1" Padding="20"  Grid.Column="0">
-                <TextBox x:Name="inPrenom"  Header="Prenom" VerticalAlignment="Top"/>
-                <TextBlock x:Name="ErrPrenom" Foreground="Red" FontSize="15" />
+                <TextBox x:Name="inPrenom"  Header="Prenom" VerticalAlignment="Top" Background="Cornsilk"/>
+                <TextBlock x:Name="ErrPrenom" Foreground="Red" FontWeight="Bold" FontSize="15" />
             </StackPanel>
 
             <StackPanel Grid.Row="1" Grid.Column="1" Padding="20">
-                <TextBox x:Name="inNom"  Header="Nom" VerticalAlignment="Top"/>
-                <TextBlock x:Name="ErrNom" Foreground="Red" FontSize="15" />
+                <TextBox x:Name="inNom"  Header="Nom" VerticalAlignment="Top" Background="Cornsilk"/>
+                <TextBlock x:Name="ErrNom" Foreground="Red" FontWeight="Bold" FontSize="15" />
             </StackPanel>
 
             <StackPanel Grid.Row="2" Padding="20" Grid.Column="0">
-                <DatePicker x:Name="inDateDeNaissance" Header="Date de naissance"></DatePicker>
-                <TextBlock x:Name="ErrDateDeNaissance" Foreground="Red" FontSize="15" />
+                <DatePicker x:Name="inDateDeNaissance" Header="Date de naissance" Background="Cornsilk"></DatePicker>
+                <TextBlock x:Name="ErrDateDeNaissance" Foreground="Red" FontWeight="Bold" FontSize="15" />
             </StackPanel>
 
             <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Padding="20">
-                <TextBox x:Name="inEmail" Header="Email"  VerticalAlignment="Top" TextWrapping="Wrap"/>
-                <TextBlock x:Name="ErrEmail" Foreground="Red" FontSize="15" />
+                <TextBox x:Name="inEmail" Header="Email"  VerticalAlignment="Top" TextWrapping="Wrap" Background="Cornsilk"/>
+                <TextBlock x:Name="ErrEmail" Foreground="Red" FontWeight="Bold" FontSize="15" />
             </StackPanel>
 
             <StackPanel Grid.Row="3" Padding="20" Grid.Column="0">
-                <DatePicker x:Name="inDateEmbauche" Header="Date d'embauche"></DatePicker>
-                <TextBlock x:Name="ErrDateEmbauche" Foreground="Red" FontSize="15" />
+                <DatePicker x:Name="inDateEmbauche" Header="Date d'embauche" Background="Cornsilk"></DatePicker>
+                <TextBlock x:Name="ErrDateEmbauche" Foreground="Red" FontWeight="Bold" FontSize="15" />
             </StackPanel>
 
             <StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Padding="20" >
-                <TextBox x:Name="inAdresse" Header="Adresse"  VerticalAlignment="Top" TextWrapping="Wrap"/>
-                <TextBlock x:Name="ErrAdresse" Foreground="Red" FontSize="15" />
+                <TextBox x:Name="inAdresse" Header="Adresse"  VerticalAlignment="Top" TextWrapping="Wrap" Background="Cornsilk"/>
+                <TextBlock x:Name="ErrAdresse" Foreground="Red" FontWeight="Bold" FontSize="15" />
             </StackPanel>
 
             <StackPanel Grid.Row="4" Grid.Column="0" Padding="20" >
-                <TextBox x:Name="inTauxHoraire" Header="Taux horaire"  VerticalAlignment="Top" TextWrapping="Wrap"/>
-                <TextBlock x:Name="ErrTauxHoraire" Foreground="Red" FontSize="15" />
+                <TextBox x:Name="inTauxHoraire" Header="Taux horaire"  VerticalAlignment="Top" TextWrapping="Wrap" Background="Cornsilk"/>
+                <TextBlock x:Name="ErrTauxHoraire" Foreground="Red" FontWeight="Bold" FontSize="15" />
             </StackPanel>
 
             <StackPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Padding="20" >
-                <TextBox x:Name="inPhoto" Header="Photo d'identité"  VerticalAlignment="Top" TextWrapping="Wrap"/>
-                <TextBlock x:Name="ErrPhoto" Foreground="Red" FontSize="15" />
+                <TextBox x:Name="inPhoto" Header="Photo d'identité"  VerticalAlignment="Top" TextWrapping="Wrap" Background="Cornsilk"/>
+                <TextBlock x:Name="ErrPhoto" Foreground="Red" FontWeight="Bold" FontSize="15" />
             </StackPanel>
 
-            <Button x:Name="btAjouter" Grid.Row="5" Grid.ColumnSpan="4" HorizontalAlignment="Center" FontSize="20" Background="LightGray" Click="btAjouter_Click">
+            <Button x:Name="btAjouter" Grid.Row="5" Grid.ColumnSpan="4" HorizontalAlignment="Center" FontSize="20" 
+                    Background="Cornsilk" Click="btAjouter_Click">
                 <TextBlock>Ajouter l'employé</TextBlock>
             </Button>
         </Grid>

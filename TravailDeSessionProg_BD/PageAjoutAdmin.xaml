@@ -9,44 +9,46 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <ScrollViewer>
+    <ScrollViewer Background="Purple">
         <Grid Padding="40" x:Name="mainGrid" >
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-            </Grid.RowDefinitions>
-
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="2*" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Nouvel administrateur" Grid.ColumnSpan="3" Margin="15" FontSize="40"
-            Grid.Row="0" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <Grid Grid.Column="1" Background="LightGreen" BorderBrush="ForestGreen" BorderThickness="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="Nouvel administrateur" Grid.ColumnSpan="3" Margin="15" FontSize="40"
+                Grid.Row="0" FontWeight="Bold" HorizontalAlignment="Center"/>
 
-            <StackPanel Grid.Row="1" Grid.Column="1" Padding="20">
-                <TextBox x:Name="inNom"  Header="Nom" VerticalAlignment="Top"/>
-                <TextBlock x:Name="ErrNom" Foreground="Red" FontSize="15" />
-            </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="1" Padding="20">
+                    <TextBox x:Name="inNom"  Header="Nom" VerticalAlignment="Top" Background="Lavender"/>
+                    <TextBlock x:Name="ErrNom" Foreground="Red" FontWeight="Bold" FontSize="15" />
+                </StackPanel>
 
-            <StackPanel Grid.Row="2" Grid.Column="1" Padding="20">
-                <TextBox x:Name="inMdp"  Header="Mots de passe" VerticalAlignment="Top"/>
-                <TextBlock x:Name="ErrMdp" Foreground="Red" FontSize="15" />
-            </StackPanel>
+                <StackPanel Grid.Row="2" Grid.Column="1" Padding="20">
+                    <TextBox x:Name="inMdp"  Header="Mots de passe" VerticalAlignment="Top" Background="Lavender"/>
+                    <TextBlock x:Name="ErrMdp" Foreground="Red" FontWeight="Bold" FontSize="15" />
+                </StackPanel>
 
-            <StackPanel Grid.Row="3" Grid.Column="1" Padding="20">
-                <TextBox x:Name="inMdpConf" Header="Confirmation"  VerticalAlignment="Top" TextWrapping="Wrap"/>
-                <TextBlock x:Name="ErrMdpConf" Foreground="Red" FontSize="15" />
-            </StackPanel>
+                <StackPanel Grid.Row="3" Grid.Column="1" Padding="20">
+                    <TextBox x:Name="inMdpConf" Header="Confirmation"  VerticalAlignment="Top" TextWrapping="Wrap" Background="Lavender"/>
+                    <TextBlock x:Name="ErrMdpConf" Foreground="Red" FontWeight="Bold" FontSize="15" />
+                </StackPanel>
 
-            <Button x:Name="btAjouter" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" FontSize="20" Background="LightGray"
-                Click="btAjouter_Click">
-                <TextBlock>Ajouter l'admin</TextBlock>
-            </Button>
+                <Button x:Name="btAjouter" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" FontSize="20" Background="Lavender"
+                    Click="btAjouter_Click">
+                    <TextBlock>Ajouter l'admin</TextBlock>
+                </Button>
+
+            </Grid>
         </Grid>
     </ScrollViewer>
 </Page>

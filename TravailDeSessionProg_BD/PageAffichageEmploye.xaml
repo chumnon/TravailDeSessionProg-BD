@@ -9,18 +9,18 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid x:Name="mainGrid">
+    <Grid x:Name="mainGrid" Background="DimGray">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        <TextBlock Text="Liste des employés" Margin="15" FontSize="40" FontFamily="Terminal" Grid.Row="0"/>
+        <TextBlock Text="Liste des employés" Margin="15" FontSize="40" FontFamily="Terminal" Grid.Row="0" Foreground="Bisque"/>
 
         <GridView x:Name="gvListeEmploye" Grid.Row="1" Padding="20">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="local:Employe" >
-                    <StackPanel Margin="5" Background="White" Width="600" Height="auto">
+                    <StackPanel Margin="5" Background="Bisque" BorderBrush="RosyBrown" BorderThickness="2" Width="600" Height="auto">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="1*" />
@@ -48,7 +48,7 @@
                             <TextBlock Text="{x:Bind Email}" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20"  TextAlignment="Left"/>
                             <TextBlock Text="{x:Bind Adresse}" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20" TextAlignment="Left"/>
                             <TextBlock Text="Taux horaire: " Grid.Row="6" Grid.Column="0" FontSize="20" TextAlignment="Left"/>
-                            <TextBlock Text="{x:Bind TauxHoraire}" Grid.Row="6" Grid.Column="1" FontSize="20" TextAlignment="Left"/>
+                            <TextBlock Text="{x:Bind FormatTauxHoraire}" Grid.Row="6" Grid.Column="1" FontSize="20" TextAlignment="Left"/>
                             <TextBlock Text="Date d'embauche: " Grid.Row="7" Grid.Column="0" FontSize="20" TextAlignment="Left"/>
                             <TextBlock Text="{x:Bind DateEmbauche}" Grid.Row="7" Grid.Column="1" FontSize="20" TextAlignment="Left"/>
                             <TextBlock Text="{x:Bind Statut}" Grid.Row="8" Grid.Column="0" FontSize="20" TextAlignment="Left"/>
@@ -59,7 +59,7 @@
             </GridView.ItemTemplate>
         </GridView>
         <Button x:Name="btModifier" Grid.Row="2" HorizontalAlignment="Center" FontSize="20" 
-        Background="LightGray" Margin="0,15,0,15" Click="btModifier_Click">
+        Background="Bisque" Margin="0,15,0,15" Click="btModifier_Click">
             <TextBlock>Modifier l'employé</TextBlock>
         </Button>
     </Grid>

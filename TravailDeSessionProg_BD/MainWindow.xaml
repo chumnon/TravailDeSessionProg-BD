@@ -15,14 +15,14 @@
         <RowDefinition Height="*" />
     </Grid.RowDefinitions>
 
-        <Grid Background="LightGray" Grid.Row="0" Height="15" >
-            <TextBlock x:Name="info" Foreground="red"></TextBlock>
-            <TextBlock x:Name="erreur" Foreground="red"></TextBlock>
+        <Grid  Background="LightGreen" Grid.Row="0" Height="20" >
+            <TextBlock x:Name="info" Foreground="red" FontFamily="Comic Sans MS"></TextBlock>
+            <TextBlock x:Name="erreur" Foreground="red" FontFamily="Comic Sans MS"></TextBlock>
         </Grid>
 
-        <CommandBar Background="LightGray" Grid.Row="1"  IsOpen="False" DefaultLabelPosition="Right" HorizontalContentAlignment="Left" >
-            <CommandBar.SecondaryCommands>
-                <AppBarButton Label="Connexion admin" x:Name="abButtonCon" Click="abButtonCon_Click"/>
+        <CommandBar Background="LightGreen" Grid.Row="1"  IsOpen="False" DefaultLabelPosition="Right" HorizontalContentAlignment="Left" >
+            <CommandBar.SecondaryCommands >
+                <AppBarButton Label="Connexion admin" x:Name="abButtonCon" Click="abButtonCon_Click" />
                 <AppBarButton Label="Déconnexion admin" x:Name="abButtonDecon" Click="abButtonDecon_Click"/>
                 <AppBarButton Label="Ajouter un compte admin" x:Name="abButtonAjoutAdmin" Click="abButtonAjoutAdmin_Click"/>
             </CommandBar.SecondaryCommands>
@@ -32,15 +32,15 @@
             </CommandBar.Content>
 
             <CommandBar.PrimaryCommands>
-                <AppBarButton Label="Enregistrer les projets" x:Name="abButtonSaveProjet" Click="abButtonSaveProjet_Click"  />
-                <AppBarButton Label="Liste des projets" x:Name="abButtonListeProjet" Click="abButtonListeProjet_Click"/>
-                <AppBarButton Label="Ajouter un projet" x:Name="abButtonAjoutProjet" Click="abButtonAjoutProjet_Click"/>
-                <AppBarButton Label="Liste des clients" x:Name="abButtonListeClient" Click="abButtonListeClient_Click"/>
-                <AppBarButton Label="Ajouter un client" x:Name="abButtonAjoutClient" Click="abButtonAjoutClient_Click"/>
-                <AppBarButton Label="Liste des employés" x:Name="abButtonListeEmploye" Click="abButtonListeEmploye_Click"/>
-                <AppBarButton Label="Ajouter un employé" x:Name="abButtonAjoutEmploye" Click="abButtonAjoutEmploye_Click"/>
+                <AppBarButton Label="Enregistrer les projets" x:Name="abButtonSaveProjet" Click="abButtonSaveProjet_Click" FontWeight="bold" />
+                <AppBarButton Label="Liste des projets" x:Name="abButtonListeProjet" Click="abButtonListeProjet_Click" FontWeight="bold"/>
+                <AppBarButton Label="Ajouter un projet" x:Name="abButtonAjoutProjet" Click="abButtonAjoutProjet_Click" FontWeight="bold"/>
+                <AppBarButton Label="Liste des clients" x:Name="abButtonListeClient" Click="abButtonListeClient_Click" FontWeight="bold"/>
+                <AppBarButton Label="Ajouter un client" x:Name="abButtonAjoutClient" Click="abButtonAjoutClient_Click" FontWeight="bold"/>
+                <AppBarButton Label="Liste des employés" x:Name="abButtonListeEmploye" Click="abButtonListeEmploye_Click" FontWeight="bold"/>
+                <AppBarButton Label="Ajouter un employé" x:Name="abButtonAjoutEmploye" Click="abButtonAjoutEmploye_Click" FontWeight="bold"/>
             </CommandBar.PrimaryCommands>
         </CommandBar>
-        <Frame x:Name="mainFrame" Grid.Row="2" Background="Gray"/>
+        <Frame x:Name="mainFrame" Grid.Row="2" Background="Purple"/>
     </Grid>
 </Window>

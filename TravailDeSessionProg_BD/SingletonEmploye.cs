@@ -272,5 +272,31 @@ namespace TravailDeSessionProg_BD
             }
 
         }
+        public int checkAncienneteEmploye(string matricule)
+        {
+            int result;
+            try
+            {
+
+                MySqlCommand commande = new MySqlCommand("check_anciennete_employe");
+                commande.Connection = con;
+                commande.CommandType = System.Data.CommandType.StoredProcedure;
+                commande.Parameters.AddWithValue("in_employe", matricule);
+
+                con.Open();
+                commande.Prepare();
+
+                result = Convert.ToInt32(commande.ExecuteScalar());
+
+                con.Close();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                con.Close();
+                result = 2;
+                return result;
+            }
+        }
     }
 }

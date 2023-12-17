@@ -33,7 +33,7 @@ namespace TravailDeSessionProg_BD
             liste.Clear();
             try
             {
-                MySqlCommand commande = new MySqlCommand("get_liste_tache_dun_projet");
+                MySqlCommand commande = new MySqlCommand("get_liste_carte_tache_dun_projet");
                 commande.Connection = con;
                 commande.CommandType = System.Data.CommandType.StoredProcedure;
                 commande.Parameters.AddWithValue("in_numero_projet", numeroProjet);
@@ -45,6 +45,7 @@ namespace TravailDeSessionProg_BD
                     {
                         NumTache = r["numTache"].ToString(),
                         LEmploye = r["employe"].ToString(),
+                        TauxHoraireEmploye = double.Parse(r["tauxHoraire"].ToString()),
                         LeProjet = r["projet"].ToString(),
                         Salaire = double.Parse(r["salaire"].ToString()),
                         NbrHeure = int.Parse(r["nbrHeure"].ToString())

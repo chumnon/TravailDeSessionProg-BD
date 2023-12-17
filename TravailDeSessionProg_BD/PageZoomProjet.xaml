@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid x:Name="mainGrid">
+    <Grid x:Name="mainGrid" Background="ForestGreen">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="1*" />
@@ -21,9 +21,9 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock  x:Name="outTitre" Margin="15" FontSize="40" Grid.ColumnSpan="2" Grid.Row="0" FontWeight="Bold"
-    HorizontalAlignment="Center"/>
+    HorizontalAlignment="Center" FontFamily="Georgia"/>
 
-        <Grid Grid.Row="1" Grid.Column="0">
+        <Grid Grid.Row="1" Grid.Column="0" Margin="25,0,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="1*" />
@@ -34,13 +34,13 @@
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
 
-            <TextBlock x:Name="outNumero" Grid.Row="0"/>
-            <TextBlock x:Name="outDateDebut" Grid.Row="1"/>
-            <TextBlock x:Name="outBudget" Grid.Row="2"/>
-            <TextBlock x:Name="outNbrEmploye" Grid.Row="3"/>
-            <TextBlock x:Name="outClient" Grid.Row="4"/>
-            <TextBlock x:Name="outStatut" Grid.Row="5"/>
-            <TextBlock x:Name="outDescription" Grid.Row="6"/>
+            <TextBlock x:Name="outNumero" Grid.Row="0" FontSize="25" FontFamily="MS Gothic" FontWeight="Bold" Foreground="GreenYellow"/>
+            <TextBlock x:Name="outDateDebut" Grid.Row="1" FontSize="25" FontFamily="MS Gothic" FontWeight="Bold" Foreground="GreenYellow"/>
+            <TextBlock x:Name="outBudget" Grid.Row="2" FontSize="25" FontFamily="MS Gothic" FontWeight="Bold" Foreground="GreenYellow"/>
+            <TextBlock x:Name="outNbrEmploye" Grid.Row="3" FontSize="25" FontFamily="MS Gothic" FontWeight="Bold" Foreground="GreenYellow"/>
+            <TextBlock x:Name="outClient" Grid.Row="4" FontSize="25" FontFamily="MS Gothic" FontWeight="Bold" Foreground="GreenYellow"/>
+            <TextBlock x:Name="outStatut" Grid.Row="5" FontSize="25" FontFamily="MS Gothic" FontWeight="Bold" Foreground="GreenYellow"/>
+            <TextBlock x:Name="outDescription" Grid.Row="6" FontSize="22" FontFamily="MS Gothic" FontWeight="Bold" Foreground="GreenYellow"/>
         </Grid>
 
         <Grid Grid.Row="1" Grid.Column="1">
@@ -55,12 +55,12 @@
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Liste des employés"/>
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" x:Name="TitreListeTache"  Text="Liste des employés:" FontSize="30" FontStyle="Italic" Foreground="LightGreen" FontFamily="Georgia"/>
 
             <GridView x:Name="gvListeTache" Grid.Row="1" Grid.ColumnSpan="2" Padding="20" HorizontalContentAlignment="Stretch">
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="local:Tache">
-                        <StackPanel Background="White" HorizontalAlignment="Left">
+                        <StackPanel Background="LightPink" BorderBrush="LightCoral" BorderThickness="2" HorizontalAlignment="Left">
                             <Grid HorizontalAlignment="Stretch">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="1*" />
@@ -73,14 +73,14 @@
                                     <RowDefinition Height="auto" />
                                 </Grid.RowDefinitions>
 
-                                <TextBlock Text="Employé: " Grid.Row="0" Grid.Column="0" FontSize="20" TextAlignment="Left" Margin="5,5,0,5"/>
-                                <TextBlock Text="{x:Bind LEmploye}" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="20" TextAlignment="Left" Margin="5,0,0,10"/>
+                                <TextBlock Text="Employé: " Grid.Row="0" Grid.Column="0" FontSize="20" FontWeight="Bold" TextAlignment="Left" Margin="5,5,0,5" />
+                                <TextBlock Text="{x:Bind LEmploye}" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="20" TextAlignment="Left" Margin="5,0,0,10" FontFamily="Georgia"/>
                                 <TextBlock Text="Taux horaire: " Grid.Row="0" Grid.Column="1" FontSize="20" TextAlignment="Left" Margin="15,5,0,5"/>
-                                <TextBlock Text="x $" Grid.Column="1"  Grid.Row="1"  FontSize="20" TextAlignment="Left" Margin="15,0,0,10"/>
+                                <TextBlock Text="{x:Bind TauxHoraireEmployeFormat}" Grid.Column="1"  Grid.Row="1"  FontSize="20" TextAlignment="Left" Margin="15,0,0,10" FontFamily="Georgia"/>
                                 <TextBlock Text="Nombre d'heure: " Grid.Row="0" Grid.Column="2" FontSize="20" TextAlignment="Left" Margin="15,5,0,5"/>
-                                <TextBlock Text="{x:Bind NbrHeure}" Grid.Row="1" Grid.Column="2" FontSize="20" TextAlignment="Left" Margin="15,0,0,10"/>
+                                <TextBlock Text="{x:Bind NbrHeure}" Grid.Row="1" Grid.Column="2" FontSize="20" TextAlignment="Left" Margin="15,0,0,10" FontFamily="Georgia"/>
                                 <TextBlock Text="Salaire: " Grid.Row="0" Grid.Column="3" FontSize="20" TextAlignment="Left" Margin="15,5,25,5"/>
-                                <TextBlock Text="{x:Bind Salaire}" Grid.Row="1" Grid.Column="3" FontSize="20" TextAlignment="Left" Margin="15,0,0,10"/>
+                                <TextBlock Text="{x:Bind SalaireFormat}" Grid.Row="1" Grid.Column="3" FontSize="20" TextAlignment="Left" Margin="15,0,0,10" FontFamily="Georgia"/>
                             </Grid>
                         </StackPanel>
                     </DataTemplate>
@@ -93,16 +93,16 @@
             </GridView>
 
 
-            <TextBlock Grid.Row="2" Grid.ColumnSpan="2" x:Name="outSalaireTotal"/>
+            <TextBlock Grid.Row="2" Grid.ColumnSpan="2" x:Name="outSalaireTotal" Foreground="LightGreen" FontWeight="Bold" FontSize="30"/>
 
             <Button x:Name="btAjoutTache" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="20" 
-        Background="LightGray" Click="btAjoutTache_Click">
+        Background="LightCoral" BorderBrush="LightPink" BorderThickness="2" FontFamily="Georgia" Click="btAjoutTache_Click">
                 <TextBlock>Ajouter un employé</TextBlock>
             </Button>
         </Grid>
 
         <Button x:Name="btTerminerProjet" Grid.Row="2"  Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="20" 
-        Background="LightGray" Click="btTerminerProjet_Click" Margin="0,25,0,25">
+        Background="LightCoral" BorderBrush="LightPink" BorderThickness="2" FontFamily="Georgia" Click="btTerminerProjet_Click" Margin="0,25,0,25">
             <TextBlock>Terminer le projet</TextBlock>
         </Button>
     </Grid>

@@ -176,39 +176,82 @@ namespace TravailDeSessionProg_BD
             }
         }
 
-        /*public bool CheckNbrEmployeProjet(string numero)
+        public int CheckNbrEmployeProjet(string numero)
         {
-            bool result;
+            int result;
             try
             {
-                MySqlCommand commande = new MySqlCommand("check_nbrEmploye_projet");
+                MySqlCommand commande = new MySqlCommand("use_check_nbrEmploye_projet");
                 commande.Connection = con;
                 commande.CommandType = System.Data.CommandType.StoredProcedure;
                 commande.Parameters.AddWithValue("in_numero", numero);
-
                 con.Open();
 
-                MySqlDataReader r = commande.ExecuteReader();
-                result = false;
-                while (r.Read())
-                {
-                    result = (bool)r["check_nbrEmploye_projet(\"203-93-2024\")"];
-                }
+                result = Convert.ToInt32(commande.ExecuteScalar());
+
+                con.Close();
                 return result;
             }
             catch (Exception ex)
             {
-                result = true;
+                con.Close();
+                result = 2;
+                return result;
             }
-            finally
+        }
+
+        public bool terminerProjet(string numero)
+        {
+            bool err;
+            try
+            {
+
+                MySqlCommand commande = new MySqlCommand("terminer_projet");
+                commande.Connection = con;
+                commande.CommandType = System.Data.CommandType.StoredProcedure;
+                commande.Parameters.AddWithValue("in_projet", numero);
+
+                con.Open();
+                commande.Prepare();
+                int i = commande.ExecuteNonQuery();
+
+                con.Close();
+                err = false;
+                return err;
+            }
+            catch (Exception ex)
             {
                 con.Close();
+                err = true;
+                return err;
             }
-            return result;
         }
-        */
-        /*public void modifierProjet(int position, Projet unProjet)
+
+        public int checkStatutProjet(string numero)
         {
-        }*/
+            int result;
+            try
+            {
+
+                MySqlCommand commande = new MySqlCommand("check_statut_projet");
+                commande.Connection = con;
+                commande.CommandType = System.Data.CommandType.StoredProcedure;
+                commande.Parameters.AddWithValue("in_projet", numero);
+
+                con.Open();
+                commande.Prepare();
+
+                result = Convert.ToInt32(commande.ExecuteScalar());
+
+                con.Close();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                con.Close();
+                result = 2;
+                return result;
+            }
+        }
     }
 }
